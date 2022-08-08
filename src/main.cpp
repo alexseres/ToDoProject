@@ -1,10 +1,14 @@
 #include <iostream>
-#include "user_manager/registration.h"
- 
+// #include "UserManager/SignIn.h"
+#include "UserManager/SignIn.h"
 
-int main() {
-    registration reg;
-    reg.registerUser();
-    std::cout << "okk" << std::endl;
+//#include <SDL.h>
+
+
+
+int main(int argc, char * argv []) {    
+    SignIn si;
+    si.userSignIn();
+
     return 0;
 }

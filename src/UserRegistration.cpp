@@ -1,8 +1,11 @@
-#include "registration.h"
 
-int registration::registerUser() {
+#include "UserRegistration.h"
+
+
+
+int UserRegistration::registerUser() {
     std::cout << "register" << std::endl;
-    return 0;
+    
 //    try {
 //        connection C("dbname = todo user = postgres password = szopacs11 hostaddr = 127.0.0.1 port = 5432");
 //        if (C.is_open()) {
@@ -16,4 +19,8 @@ int registration::registerUser() {
 //        std::cerr << e.what() << std::endl;
 //        return 1;
 //    }
+    return 0;
 }
+
+
+
