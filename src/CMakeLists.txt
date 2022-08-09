@@ -1,4 +1,4 @@
-add_executable(todop main.cpp)
+add_executable(todop main.cpp Utils.cpp)
 add_subdirectory(UserManager)
 target_include_directories(todop PUBLIC UserManager)
 target_link_directories(todop PRIVATE UserManager)
