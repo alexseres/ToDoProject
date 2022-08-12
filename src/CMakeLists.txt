@@ -1,5 +1,6 @@
 add_executable(todop main.cpp Utils.cpp)
+add_subdirectory(Model)
 add_subdirectory(UserManager)
-target_include_directories(todop PUBLIC UserManager)
-target_link_directories(todop PRIVATE UserManager)
+target_include_directories(todop PUBLIC UserManager Model)
+target_link_directories(todop PUBLIC UserManager Model)
 target_link_libraries(todop PUBLIC user_manager)

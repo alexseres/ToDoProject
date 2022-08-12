@@ -1,5 +1,4 @@
 #include "Utils.h"
-extern char **environ;
 
 std::string const Utils::getEnvironmentVariableConnectionString(){
 

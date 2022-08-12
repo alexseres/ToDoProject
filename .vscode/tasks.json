@@ -10,7 +10,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/main.cpp",
-                "/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/UserRegistration.cpp",
+                "/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/UserHandler.cpp",
                 "/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Utils.cpp",
                 "-lpqxx",
                 "-lpq",
