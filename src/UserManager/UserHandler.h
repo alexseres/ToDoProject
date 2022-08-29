@@ -8,10 +8,10 @@
 class UserHandler {
 private:
     Utils util;
+    std::string connection_string = util.getEnvironmentVariableConnectionString();
 public:
-
     bool check_connection();
-    int create_user();
+    int create_user(std::string user_name,std::string password);
 };
 
 

@@ -10,3 +10,9 @@ std::string const Utils::getEnvironmentVariableConnectionString(){
     
     return "ok";
 }
+
+unsigned long const Utils::hash_password(std::string str){
+  std::hash<std::string> hash_obj;
+  return hash_obj(str);
+  
+}
