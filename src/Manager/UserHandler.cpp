@@ -2,24 +2,22 @@
 
 
 
+
 int UserHandler::create_user(std::string user_name, std::string password, std::string salt) {
     try {
-        pqxx::connection connection_object(connection_string);
-        if (!check_connection(connection_object)) return 0;
-
         auto hashed_password = std::to_string(Utils::hash_password(password + salt));
-        /* Create SQL statement */
-        std::string sql = "INSERT INTO \"Users\"(" \
+        std::string sql_statement = "INSERT INTO \"Users\"(" \
                       "user_id, user_name, hashed_value, salt)" \
                       "VALUES (gen_random_uuid (), '" + user_name + "', '" + hashed_password + "', '" + salt + "');";
+        int suceeded = sql_manager.insert_data(sql_statement);
 
-        /* Create a transactional object. */
-        pqxx::work W(connection_object);
-        /* Execute SQL query */
-        W.exec(sql);
-        W.commit();
-        std::cout << user_name << "table created successfully" << std::endl;
-        connection_object.close();
+        if(suceeded == 0){
+            std::cout << "insert operation succeded" << std::endl;
+        }
+        else{
+            std::cerr <<"insert operation not succeded"<< std::endl;
+            throw pqxx::sql_error();
+        }
 
     } catch (const pqxx::sql_error &e) {
         std::cerr << e.what() << std::endl;
@@ -34,27 +32,22 @@ int UserHandler::create_user(std::string user_name, std::string password, std::s
 
 int UserHandler::get_user(std::string user_name,std::string password, std::string salt){
     try {
-        pqxx::connection connection_object(connection_string);
-        if (!check_connection(connection_object)) return 0;
+        std::string sql_statement = "SELECT * FROM \"Users\" WHERE user_name='" + user_name + "' AND salt='" + salt + "';";
+        pqxx::result r = sql_manager.get_data(sql_statement);
 
-        std::string sql = "SELECT * FROM \"Users\" WHERE user_name='" + user_name + "' AND salt='" + salt + "';";
-        pqxx::nontransaction nontransactional_object(connection_object);
-        pqxx::result r(nontransactional_object.exec(sql));
-        std::string hashed_password = std::to_string(Utils::hash_password(password + salt));
-
-        //print row fields
-        pqxx::row const row = r[0];
-        int const num_cols = row.size();
-        for (int colnum = 0; colnum < num_cols; ++colnum) {
-            pqxx::field const field = row[colnum];
-            std::cout << field.c_str() << '\t' << std::endl;;
+        std::string given_hashed_password = std::to_string(Utils::hash_password(password + salt));
+        std::string hash_value_from_db = pqxx::to_string(r[0][2].c_str());
+        if(given_hashed_password == hash_value_from_db) {
+            //below converts pqxx val to string and assign those to user members
+//            return User(pqxx::to_string(r[0][0].c_str()), pqxx::to_string(r[0][1].c_str()), hash_value_from_db, pqxx::to_string(r[0][3].c_str()));
+            return 0;
         }
-
-
-        connection_object.close();
-        return 0;
+        else{
+            throw std::runtime_error("password is wrong");
+        }
     } catch(const pqxx::sql_error &e){
         std::cerr << e.what() << std::endl;
+        return 1;
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
         return 1;
@@ -79,3 +72,5 @@ bool UserHandler::check_connection(pqxx::connection& connection_object) {
     }
     return hasConnected;
 }
+
+
