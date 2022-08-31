@@ -6,8 +6,8 @@
 
 
 int main(int argc, char * argv []) {    
-    UserHandler ur;
-    ur.create_user();
+    // UserHandler ur;
+    // ur.create_user();
 
     std::cout << "workingworks" << std::endl;
     return 0;

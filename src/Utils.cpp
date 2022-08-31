@@ -1,5 +1,6 @@
 #include "Utils.h"
 
+
 std::string const Utils::getEnvironmentVariableConnectionString(){
 
     const char *conn_string = getenv("todop_conn_str");

@@ -2,8 +2,10 @@
 
 class User {
 private:
+    std::string uuid;
     std::string user_name;
-    std::string password;
+    std::string hashed_value;
+    std::string salt;
 public:
-    
-}
+    User();
+};

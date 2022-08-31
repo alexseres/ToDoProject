@@ -1,4 +1,5 @@
 add_executable(todop main.cpp Utils.cpp)
+add_subdirectory(CustomExceptions)
 add_subdirectory(Model)
 add_subdirectory(UserManager)
 target_include_directories(todop PUBLIC UserManager Model)

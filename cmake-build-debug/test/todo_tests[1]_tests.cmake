@@ -1,0 +1,5 @@
+add_test([=[UserHandlerTest.check_connection]=]  /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/todo_tests [==[--gtest_filter=UserHandlerTest.check_connection]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[UserHandlerTest.check_connection]=]  PROPERTIES WORKING_DIRECTORY /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[UserHandlerTest.check_create_user]=]  /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/todo_tests [==[--gtest_filter=UserHandlerTest.check_create_user]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[UserHandlerTest.check_create_user]=]  PROPERTIES WORKING_DIRECTORY /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  todo_tests_TESTS UserHandlerTest.check_connection UserHandlerTest.check_create_user)

@@ -1,0 +1,995 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: ToDoProject
+# Configurations: Debug
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/alexseres/OwnCplusPlusProjects/ToDoProject -B/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/alexseres/OwnCplusPlusProjects/ToDoProject/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target todop
+
+
+#############################################
+# Order-only phony target for todop
+
+build cmake_object_order_depends_target_todop: phony || cmake_object_order_depends_target_models cmake_object_order_depends_target_user_manager
+
+build src/CMakeFiles/todop.dir/main.cpp.o: CXX_COMPILER__todop_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/main.cpp || cmake_object_order_depends_target_todop
+  DEP_FILE = src/CMakeFiles/todop.dir/main.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/../Model/User.cpp
+  OBJECT_DIR = src/CMakeFiles/todop.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/todop.dir
+
+build src/CMakeFiles/todop.dir/Utils.cpp.o: CXX_COMPILER__todop_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Utils.cpp || cmake_object_order_depends_target_todop
+  DEP_FILE = src/CMakeFiles/todop.dir/Utils.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/../Model/User.cpp
+  OBJECT_DIR = src/CMakeFiles/todop.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/todop.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target todop
+
+
+#############################################
+# Link the executable src/todop
+
+build src/todop: CXX_EXECUTABLE_LINKER__todop_Debug src/CMakeFiles/todop.dir/main.cpp.o src/CMakeFiles/todop.dir/Utils.cpp.o | src/UserManager/libuser_manager.a src/Model/libmodels.a /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib || src/Model/libmodels.a src/UserManager/libuser_manager.a
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
+  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model  src/UserManager/libuser_manager.a  src/Model/libmodels.a  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib
+  LINK_PATH = -L/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager   -L/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model
+  OBJECT_DIR = src/CMakeFiles/todop.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/todop
+  TARGET_PDB = todop.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/edit_cache: phony src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/alexseres/OwnCplusPlusProjects/ToDoProject -B/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/rebuild_cache: phony src/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build src/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/CMakeFiles/install.util: CUSTOM_COMMAND src/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/install: phony src/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/CMakeFiles/install/local.util: CUSTOM_COMMAND src/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/install/local: phony src/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/install/strip: phony src/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target models
+
+
+#############################################
+# Order-only phony target for models
+
+build cmake_object_order_depends_target_models: phony || src/Model/CMakeFiles/models.dir
+
+build src/Model/CMakeFiles/models.dir/User.cpp.o: CXX_COMPILER__models_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model/User.cpp || cmake_object_order_depends_target_models
+  DEP_FILE = src/Model/CMakeFiles/models.dir/User.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
+  OBJECT_DIR = src/Model/CMakeFiles/models.dir
+  OBJECT_FILE_DIR = src/Model/CMakeFiles/models.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target models
+
+
+#############################################
+# Link the static library src/Model/libmodels.a
+
+build src/Model/libmodels.a: CXX_STATIC_LIBRARY_LINKER__models_Debug src/Model/CMakeFiles/models.dir/User.cpp.o
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = src/Model/CMakeFiles/models.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/Model/libmodels.a
+  TARGET_PDB = models.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/Model/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Model && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/Model/edit_cache: phony src/Model/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/Model/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Model && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/alexseres/OwnCplusPlusProjects/ToDoProject -B/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/Model/rebuild_cache: phony src/Model/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build src/Model/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/Model/CMakeFiles/install.util: CUSTOM_COMMAND src/Model/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Model && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/Model/install: phony src/Model/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/Model/CMakeFiles/install/local.util: CUSTOM_COMMAND src/Model/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Model && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/Model/install/local: phony src/Model/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/Model/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/Model/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Model && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/Model/install/strip: phony src/Model/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target user_manager
+
+
+#############################################
+# Order-only phony target for user_manager
+
+build cmake_object_order_depends_target_user_manager: phony || cmake_object_order_depends_target_models
+
+build src/UserManager/CMakeFiles/user_manager.dir/UserHandler.cpp.o: CXX_COMPILER__user_manager_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/UserHandler.cpp || cmake_object_order_depends_target_user_manager
+  DEP_FILE = src/UserManager/CMakeFiles/user_manager.dir/UserHandler.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
+  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/../Model/User.cpp
+  OBJECT_DIR = src/UserManager/CMakeFiles/user_manager.dir
+  OBJECT_FILE_DIR = src/UserManager/CMakeFiles/user_manager.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target user_manager
+
+
+#############################################
+# Link the static library src/UserManager/libuser_manager.a
+
+build src/UserManager/libuser_manager.a: CXX_STATIC_LIBRARY_LINKER__user_manager_Debug src/UserManager/CMakeFiles/user_manager.dir/UserHandler.cpp.o || src/Model/libmodels.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = src/UserManager/CMakeFiles/user_manager.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/UserManager/libuser_manager.a
+  TARGET_PDB = user_manager.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/UserManager/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/UserManager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/UserManager/edit_cache: phony src/UserManager/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/UserManager/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/UserManager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/alexseres/OwnCplusPlusProjects/ToDoProject -B/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/UserManager/rebuild_cache: phony src/UserManager/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build src/UserManager/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/UserManager/CMakeFiles/install.util: CUSTOM_COMMAND src/UserManager/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/UserManager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/UserManager/install: phony src/UserManager/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/UserManager/CMakeFiles/install/local.util: CUSTOM_COMMAND src/UserManager/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/UserManager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/UserManager/install/local: phony src/UserManager/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/UserManager/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/UserManager/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/UserManager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/UserManager/install/strip: phony src/UserManager/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/alexseres/OwnCplusPlusProjects/ToDoProject/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target td_test
+
+
+#############################################
+# Order-only phony target for td_test
+
+build cmake_object_order_depends_target_td_test: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main cmake_object_order_depends_target_models cmake_object_order_depends_target_user_manager
+
+build test/CMakeFiles/td_test.dir/user_handler_test.cpp.o: CXX_COMPILER__td_test_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/user_handler_test.cpp || cmake_object_order_depends_target_td_test
+  DEP_FILE = test/CMakeFiles/td_test.dir/user_handler_test.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
+  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/../Model/User.cpp -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
+  OBJECT_DIR = test/CMakeFiles/td_test.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/td_test.dir
+
+build test/CMakeFiles/td_test.dir/__/src/Utils.cpp.o: CXX_COMPILER__td_test_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Utils.cpp || cmake_object_order_depends_target_td_test
+  DEP_FILE = test/CMakeFiles/td_test.dir/__/src/Utils.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
+  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/../Model/User.cpp -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
+  OBJECT_DIR = test/CMakeFiles/td_test.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/td_test.dir/__/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target td_test
+
+
+#############################################
+# Link the executable test/td_test
+
+build test/td_test: CXX_EXECUTABLE_LINKER__td_test_Debug test/CMakeFiles/td_test.dir/user_handler_test.cpp.o test/CMakeFiles/td_test.dir/__/src/Utils.cpp.o | /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/UserManager/libuser_manager.a lib/libgtest_main.a /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Model/libmodels.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a src/Model/libmodels.a src/UserManager/libuser_manager.a
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
+  LINK_LIBRARIES = /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/UserManager/libuser_manager.a  lib/libgtest_main.a  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/Model/libmodels.a  lib/libgtest.a
+  OBJECT_DIR = test/CMakeFiles/td_test.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = test/td_test
+  TARGET_PDB = td_test.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build test/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build test/edit_cache: phony test/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build test/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/alexseres/OwnCplusPlusProjects/ToDoProject -B/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build test/rebuild_cache: phony test/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build test/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build test/CMakeFiles/install.util: CUSTOM_COMMAND test/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build test/install: phony test/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build test/CMakeFiles/install/local.util: CUSTOM_COMMAND test/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build test/install/local: phony test/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build test/CMakeFiles/install/strip.util: CUSTOM_COMMAND test/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build test/install/strip: phony test/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build test/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build test/googletest/edit_cache: phony test/googletest/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build test/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/alexseres/OwnCplusPlusProjects/ToDoProject -B/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build test/googletest/rebuild_cache: phony test/googletest/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build test/googletest/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build test/googletest/CMakeFiles/install.util: CUSTOM_COMMAND test/googletest/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build test/googletest/install: phony test/googletest/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build test/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND test/googletest/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build test/googletest/install/local: phony test/googletest/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build test/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND test/googletest/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build test/googletest/install/strip: phony test/googletest/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Order-only phony target for gmock
+
+build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depends_target_gtest
+
+build test/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
+  DEP_FILE = test/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15  -DGTEST_HAS_PTHREAD=1   -std=c++17
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
+  OBJECT_DIR = test/googletest/googlemock/CMakeFiles/gmock.dir
+  OBJECT_FILE_DIR = test/googletest/googlemock/CMakeFiles/gmock.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Link the static library lib/libgmock.a
+
+build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug test/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o || lib/libgtest.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = test/googletest/googlemock/CMakeFiles/gmock.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgmock.a
+  TARGET_PDB = gmock.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Order-only phony target for gmock_main
+
+build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
+
+build test/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
+  DEP_FILE = test/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15  -DGTEST_HAS_PTHREAD=1   -std=c++17
+  INCLUDES = -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
+  OBJECT_DIR = test/googletest/googlemock/CMakeFiles/gmock_main.dir
+  OBJECT_FILE_DIR = test/googletest/googlemock/CMakeFiles/gmock_main.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Link the static library lib/libgmock_main.a
+
+build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug test/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o || lib/libgmock.a lib/libgtest.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = test/googletest/googlemock/CMakeFiles/gmock_main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgmock_main.a
+  TARGET_PDB = gmock_main.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build test/googletest/googlemock/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build test/googletest/googlemock/edit_cache: phony test/googletest/googlemock/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build test/googletest/googlemock/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/alexseres/OwnCplusPlusProjects/ToDoProject -B/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build test/googletest/googlemock/rebuild_cache: phony test/googletest/googlemock/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build test/googletest/googlemock/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build test/googletest/googlemock/CMakeFiles/install.util: CUSTOM_COMMAND test/googletest/googlemock/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build test/googletest/googlemock/install: phony test/googletest/googlemock/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build test/googletest/googlemock/CMakeFiles/install/local.util: CUSTOM_COMMAND test/googletest/googlemock/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build test/googletest/googlemock/install/local: phony test/googletest/googlemock/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build test/googletest/googlemock/CMakeFiles/install/strip.util: CUSTOM_COMMAND test/googletest/googlemock/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build test/googletest/googlemock/install/strip: phony test/googletest/googlemock/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Order-only phony target for gtest
+
+build cmake_object_order_depends_target_gtest: phony || test/googletest/googletest/CMakeFiles/gtest.dir
+
+build test/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+  DEP_FILE = test/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15  -DGTEST_HAS_PTHREAD=1   -std=c++17
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
+  OBJECT_DIR = test/googletest/googletest/CMakeFiles/gtest.dir
+  OBJECT_FILE_DIR = test/googletest/googletest/CMakeFiles/gtest.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Link the static library lib/libgtest.a
+
+build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug test/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = test/googletest/googletest/CMakeFiles/gtest.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgtest.a
+  TARGET_PDB = gtest.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Order-only phony target for gtest_main
+
+build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
+
+build test/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+  DEP_FILE = test/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15  -DGTEST_HAS_PTHREAD=1   -std=c++17
+  INCLUDES = -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
+  OBJECT_DIR = test/googletest/googletest/CMakeFiles/gtest_main.dir
+  OBJECT_FILE_DIR = test/googletest/googletest/CMakeFiles/gtest_main.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Link the static library lib/libgtest_main.a
+
+build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug test/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o || lib/libgtest.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = test/googletest/googletest/CMakeFiles/gtest_main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgtest_main.a
+  TARGET_PDB = gtest_main.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build test/googletest/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build test/googletest/googletest/edit_cache: phony test/googletest/googletest/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build test/googletest/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/alexseres/OwnCplusPlusProjects/ToDoProject -B/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build test/googletest/googletest/rebuild_cache: phony test/googletest/googletest/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build test/googletest/googletest/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build test/googletest/googletest/CMakeFiles/install.util: CUSTOM_COMMAND test/googletest/googletest/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build test/googletest/googletest/install: phony test/googletest/googletest/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build test/googletest/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND test/googletest/googletest/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build test/googletest/googletest/install/local: phony test/googletest/googletest/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build test/googletest/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND test/googletest/googletest/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build test/googletest/googletest/install/strip: phony test/googletest/googletest/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Target aliases.
+
+build gmock: phony lib/libgmock.a
+
+build gmock_main: phony lib/libgmock_main.a
+
+build gtest: phony lib/libgtest.a
+
+build gtest_main: phony lib/libgtest_main.a
+
+build libgmock.a: phony lib/libgmock.a
+
+build libgmock_main.a: phony lib/libgmock_main.a
+
+build libgtest.a: phony lib/libgtest.a
+
+build libgtest_main.a: phony lib/libgtest_main.a
+
+build libmodels.a: phony src/Model/libmodels.a
+
+build libuser_manager.a: phony src/UserManager/libuser_manager.a
+
+build models: phony src/Model/libmodels.a
+
+build td_test: phony test/td_test
+
+build todop: phony src/todop
+
+build user_manager: phony src/UserManager/libuser_manager.a
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug
+
+build all: phony src/all test/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src
+
+build src/all: phony src/todop src/Model/all src/UserManager/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Model
+
+build src/Model/all: phony src/Model/libmodels.a
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/UserManager
+
+build src/UserManager/all: phony src/UserManager/libuser_manager.a
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test
+
+build test/all: phony test/td_test test/googletest/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest
+
+build test/googletest/all: phony test/googletest/googlemock/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googlemock
+
+build test/googletest/googlemock/all: phony lib/libgmock.a lib/libgmock_main.a test/googletest/googletest/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googletest
+
+build test/googletest/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../src/CMakeLists.txt ../src/Model/CMakeLists.txt ../src/UserManager/CMakeLists.txt ../test/CMakeLists.txt ../test/googletest/CMakeLists.txt ../test/googletest/googlemock/CMakeLists.txt ../test/googletest/googlemock/cmake/gmock.pc.in ../test/googletest/googlemock/cmake/gmock_main.pc.in ../test/googletest/googletest/CMakeLists.txt ../test/googletest/googletest/cmake/Config.cmake.in ../test/googletest/googletest/cmake/gtest.pc.in ../test/googletest/googletest/cmake/gtest_main.pc.in ../test/googletest/googletest/cmake/internal_utils.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build ../CMakeLists.txt ../src/CMakeLists.txt ../src/Model/CMakeLists.txt ../src/UserManager/CMakeLists.txt ../test/CMakeLists.txt ../test/googletest/CMakeLists.txt ../test/googletest/googlemock/CMakeLists.txt ../test/googletest/googlemock/cmake/gmock.pc.in ../test/googletest/googlemock/cmake/gmock_main.pc.in ../test/googletest/googletest/CMakeLists.txt ../test/googletest/googletest/cmake/Config.cmake.in ../test/googletest/googletest/cmake/gtest.pc.in ../test/googletest/googletest/cmake/gtest_main.pc.in ../test/googletest/googletest/cmake/internal_utils.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all
