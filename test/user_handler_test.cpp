@@ -1,6 +1,6 @@
 #include <iostream>
 #include "gtest/gtest.h"
-#include "../src/UserManager/UserHandler.h"
+#include "../src/Manager/UserHandler.h"
 
 
 
@@ -17,6 +17,16 @@ TEST(UserHandlerTest, check_create_user){
     std::string user_name = "Alex";
     std::string password = "valami";
     std::string salt = "so";
+
     int num1 = uh.create_user(user_name, password, salt);
+    int num2 = uh.get_user(user_name, password, salt);
+}
+
+TEST(UserHandlerTest, get_user){
+    UserHandler uh;
+    std::string user_name = "Alex";
+    std::string password = "valami";
+    std::string salt = "so";
+
     int num2 = uh.get_user(user_name, password, salt);
 }

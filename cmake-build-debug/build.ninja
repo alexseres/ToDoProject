@@ -114,19 +114,19 @@ build install/strip: phony CMakeFiles/install/strip.util
 #############################################
 # Order-only phony target for todop
 
-build cmake_object_order_depends_target_todop: phony || cmake_object_order_depends_target_models cmake_object_order_depends_target_user_manager
+build cmake_object_order_depends_target_todop: phony || cmake_object_order_depends_target_manager cmake_object_order_depends_target_models
 
 build src/CMakeFiles/todop.dir/main.cpp.o: CXX_COMPILER__todop_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/main.cpp || cmake_object_order_depends_target_todop
   DEP_FILE = src/CMakeFiles/todop.dir/main.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
-  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/../Model/User.cpp
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp
   OBJECT_DIR = src/CMakeFiles/todop.dir
   OBJECT_FILE_DIR = src/CMakeFiles/todop.dir
 
 build src/CMakeFiles/todop.dir/Utils.cpp.o: CXX_COMPILER__todop_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Utils.cpp || cmake_object_order_depends_target_todop
   DEP_FILE = src/CMakeFiles/todop.dir/Utils.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
-  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/../Model/User.cpp
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp
   OBJECT_DIR = src/CMakeFiles/todop.dir
   OBJECT_FILE_DIR = src/CMakeFiles/todop.dir
 
@@ -138,10 +138,10 @@ build src/CMakeFiles/todop.dir/Utils.cpp.o: CXX_COMPILER__todop_Debug /Users/ale
 #############################################
 # Link the executable src/todop
 
-build src/todop: CXX_EXECUTABLE_LINKER__todop_Debug src/CMakeFiles/todop.dir/main.cpp.o src/CMakeFiles/todop.dir/Utils.cpp.o | src/UserManager/libuser_manager.a src/Model/libmodels.a /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib || src/Model/libmodels.a src/UserManager/libuser_manager.a
+build src/todop: CXX_EXECUTABLE_LINKER__todop_Debug src/CMakeFiles/todop.dir/main.cpp.o src/CMakeFiles/todop.dir/Utils.cpp.o | src/Manager/libmanager.a src/Model/libmodels.a /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib || src/Manager/libmanager.a src/Model/libmodels.a
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model  src/UserManager/libuser_manager.a  src/Model/libmodels.a  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib
-  LINK_PATH = -L/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager   -L/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model
+  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model  src/Manager/libmanager.a  src/Model/libmodels.a  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib
+  LINK_PATH = -L/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager   -L/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model
   OBJECT_DIR = src/CMakeFiles/todop.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -321,102 +321,109 @@ build src/Model/install/strip: phony src/Model/CMakeFiles/install/strip.util
 # =============================================================================
 
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target user_manager
+# Object build statements for STATIC_LIBRARY target manager
 
 
 #############################################
-# Order-only phony target for user_manager
+# Order-only phony target for manager
 
-build cmake_object_order_depends_target_user_manager: phony || cmake_object_order_depends_target_models
+build cmake_object_order_depends_target_manager: phony || cmake_object_order_depends_target_models
 
-build src/UserManager/CMakeFiles/user_manager.dir/UserHandler.cpp.o: CXX_COMPILER__user_manager_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/UserHandler.cpp || cmake_object_order_depends_target_user_manager
-  DEP_FILE = src/UserManager/CMakeFiles/user_manager.dir/UserHandler.cpp.o.d
+build src/Manager/CMakeFiles/manager.dir/UserHandler.cpp.o: CXX_COMPILER__manager_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/UserHandler.cpp || cmake_object_order_depends_target_manager
+  DEP_FILE = src/Manager/CMakeFiles/manager.dir/UserHandler.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
-  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/../Model/User.cpp
-  OBJECT_DIR = src/UserManager/CMakeFiles/user_manager.dir
-  OBJECT_FILE_DIR = src/UserManager/CMakeFiles/user_manager.dir
+  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp
+  OBJECT_DIR = src/Manager/CMakeFiles/manager.dir
+  OBJECT_FILE_DIR = src/Manager/CMakeFiles/manager.dir
+
+build src/Manager/CMakeFiles/manager.dir/SQL_Operations.cpp.o: CXX_COMPILER__manager_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/SQL_Operations.cpp || cmake_object_order_depends_target_manager
+  DEP_FILE = src/Manager/CMakeFiles/manager.dir/SQL_Operations.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
+  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp
+  OBJECT_DIR = src/Manager/CMakeFiles/manager.dir
+  OBJECT_FILE_DIR = src/Manager/CMakeFiles/manager.dir
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target user_manager
+# Link build statements for STATIC_LIBRARY target manager
 
 
 #############################################
-# Link the static library src/UserManager/libuser_manager.a
+# Link the static library src/Manager/libmanager.a
 
-build src/UserManager/libuser_manager.a: CXX_STATIC_LIBRARY_LINKER__user_manager_Debug src/UserManager/CMakeFiles/user_manager.dir/UserHandler.cpp.o || src/Model/libmodels.a
+build src/Manager/libmanager.a: CXX_STATIC_LIBRARY_LINKER__manager_Debug src/Manager/CMakeFiles/manager.dir/UserHandler.cpp.o src/Manager/CMakeFiles/manager.dir/SQL_Operations.cpp.o || src/Model/libmodels.a
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = src/UserManager/CMakeFiles/user_manager.dir
+  OBJECT_DIR = src/Manager/CMakeFiles/manager.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = src/UserManager/libuser_manager.a
-  TARGET_PDB = user_manager.a.dbg
+  TARGET_FILE = src/Manager/libmanager.a
+  TARGET_PDB = manager.a.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
-build src/UserManager/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/UserManager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+build src/Manager/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Manager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build src/UserManager/edit_cache: phony src/UserManager/CMakeFiles/edit_cache.util
+build src/Manager/edit_cache: phony src/Manager/CMakeFiles/edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build src/UserManager/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/UserManager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/alexseres/OwnCplusPlusProjects/ToDoProject -B/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug
+build src/Manager/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Manager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/alexseres/OwnCplusPlusProjects/ToDoProject -B/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build src/UserManager/rebuild_cache: phony src/UserManager/CMakeFiles/rebuild_cache.util
+build src/Manager/rebuild_cache: phony src/Manager/CMakeFiles/rebuild_cache.util
 
 
 #############################################
 # Utility command for list_install_components
 
-build src/UserManager/list_install_components: phony
+build src/Manager/list_install_components: phony
 
 
 #############################################
 # Utility command for install
 
-build src/UserManager/CMakeFiles/install.util: CUSTOM_COMMAND src/UserManager/all
-  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/UserManager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+build src/Manager/CMakeFiles/install.util: CUSTOM_COMMAND src/Manager/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Manager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
 
-build src/UserManager/install: phony src/UserManager/CMakeFiles/install.util
+build src/Manager/install: phony src/Manager/CMakeFiles/install.util
 
 
 #############################################
 # Utility command for install/local
 
-build src/UserManager/CMakeFiles/install/local.util: CUSTOM_COMMAND src/UserManager/all
-  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/UserManager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+build src/Manager/CMakeFiles/install/local.util: CUSTOM_COMMAND src/Manager/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Manager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
 
-build src/UserManager/install/local: phony src/UserManager/CMakeFiles/install/local.util
+build src/Manager/install/local: phony src/Manager/CMakeFiles/install/local.util
 
 
 #############################################
 # Utility command for install/strip
 
-build src/UserManager/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/UserManager/all
-  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/UserManager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+build src/Manager/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/Manager/all
+  COMMAND = cd /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Manager && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
 
-build src/UserManager/install/strip: phony src/UserManager/CMakeFiles/install/strip.util
+build src/Manager/install/strip: phony src/Manager/CMakeFiles/install/strip.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -430,19 +437,19 @@ build src/UserManager/install/strip: phony src/UserManager/CMakeFiles/install/st
 #############################################
 # Order-only phony target for td_test
 
-build cmake_object_order_depends_target_td_test: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main cmake_object_order_depends_target_models cmake_object_order_depends_target_user_manager
+build cmake_object_order_depends_target_td_test: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main cmake_object_order_depends_target_manager cmake_object_order_depends_target_models
 
 build test/CMakeFiles/td_test.dir/user_handler_test.cpp.o: CXX_COMPILER__td_test_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/user_handler_test.cpp || cmake_object_order_depends_target_td_test
   DEP_FILE = test/CMakeFiles/td_test.dir/user_handler_test.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
-  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/../Model/User.cpp -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
+  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
   OBJECT_DIR = test/CMakeFiles/td_test.dir
   OBJECT_FILE_DIR = test/CMakeFiles/td_test.dir
 
 build test/CMakeFiles/td_test.dir/__/src/Utils.cpp.o: CXX_COMPILER__td_test_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Utils.cpp || cmake_object_order_depends_target_td_test
   DEP_FILE = test/CMakeFiles/td_test.dir/__/src/Utils.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
-  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/UserManager/../Model/User.cpp -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
+  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
   OBJECT_DIR = test/CMakeFiles/td_test.dir
   OBJECT_FILE_DIR = test/CMakeFiles/td_test.dir/__/src
 
@@ -454,9 +461,9 @@ build test/CMakeFiles/td_test.dir/__/src/Utils.cpp.o: CXX_COMPILER__td_test_Debu
 #############################################
 # Link the executable test/td_test
 
-build test/td_test: CXX_EXECUTABLE_LINKER__td_test_Debug test/CMakeFiles/td_test.dir/user_handler_test.cpp.o test/CMakeFiles/td_test.dir/__/src/Utils.cpp.o | /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/UserManager/libuser_manager.a lib/libgtest_main.a /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Model/libmodels.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a src/Model/libmodels.a src/UserManager/libuser_manager.a
+build test/td_test: CXX_EXECUTABLE_LINKER__td_test_Debug test/CMakeFiles/td_test.dir/user_handler_test.cpp.o test/CMakeFiles/td_test.dir/__/src/Utils.cpp.o | /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Manager/libmanager.a lib/libgtest_main.a /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Model/libmodels.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a src/Manager/libmanager.a src/Model/libmodels.a
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  LINK_LIBRARIES = /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/UserManager/libuser_manager.a  lib/libgtest_main.a  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/Model/libmodels.a  lib/libgtest.a
+  LINK_LIBRARIES = /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/Manager/libmanager.a  lib/libgtest_main.a  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/Model/libmodels.a  lib/libgtest.a
   OBJECT_DIR = test/CMakeFiles/td_test.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -889,17 +896,17 @@ build libgtest.a: phony lib/libgtest.a
 
 build libgtest_main.a: phony lib/libgtest_main.a
 
+build libmanager.a: phony src/Manager/libmanager.a
+
 build libmodels.a: phony src/Model/libmodels.a
 
-build libuser_manager.a: phony src/UserManager/libuser_manager.a
+build manager: phony src/Manager/libmanager.a
 
 build models: phony src/Model/libmodels.a
 
 build td_test: phony test/td_test
 
 build todop: phony src/todop
-
-build user_manager: phony src/UserManager/libuser_manager.a
 
 # =============================================================================
 # Folder targets.
@@ -916,7 +923,14 @@ build all: phony src/all test/all
 #############################################
 # Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src
 
-build src/all: phony src/todop src/Model/all src/UserManager/all
+build src/all: phony src/todop src/Model/all src/Manager/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Manager
+
+build src/Manager/all: phony src/Manager/libmanager.a
 
 # =============================================================================
 
@@ -924,13 +938,6 @@ build src/all: phony src/todop src/Model/all src/UserManager/all
 # Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Model
 
 build src/Model/all: phony src/Model/libmodels.a
-
-# =============================================================================
-
-#############################################
-# Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/UserManager
-
-build src/UserManager/all: phony src/UserManager/libuser_manager.a
 
 # =============================================================================
 
@@ -967,14 +974,14 @@ build test/googletest/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../src/CMakeLists.txt ../src/Model/CMakeLists.txt ../src/UserManager/CMakeLists.txt ../test/CMakeLists.txt ../test/googletest/CMakeLists.txt ../test/googletest/googlemock/CMakeLists.txt ../test/googletest/googlemock/cmake/gmock.pc.in ../test/googletest/googlemock/cmake/gmock_main.pc.in ../test/googletest/googletest/CMakeLists.txt ../test/googletest/googletest/cmake/Config.cmake.in ../test/googletest/googletest/cmake/gtest.pc.in ../test/googletest/googletest/cmake/gtest_main.pc.in ../test/googletest/googletest/cmake/internal_utils.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../src/CMakeLists.txt ../src/Manager/CMakeLists.txt ../src/Model/CMakeLists.txt ../test/CMakeLists.txt ../test/googletest/CMakeLists.txt ../test/googletest/googlemock/CMakeLists.txt ../test/googletest/googlemock/cmake/gmock.pc.in ../test/googletest/googlemock/cmake/gmock_main.pc.in ../test/googletest/googletest/CMakeLists.txt ../test/googletest/googletest/cmake/Config.cmake.in ../test/googletest/googletest/cmake/gtest.pc.in ../test/googletest/googletest/cmake/gtest_main.pc.in ../test/googletest/googletest/cmake/internal_utils.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../src/CMakeLists.txt ../src/Model/CMakeLists.txt ../src/UserManager/CMakeLists.txt ../test/CMakeLists.txt ../test/googletest/CMakeLists.txt ../test/googletest/googlemock/CMakeLists.txt ../test/googletest/googlemock/cmake/gmock.pc.in ../test/googletest/googlemock/cmake/gmock_main.pc.in ../test/googletest/googletest/CMakeLists.txt ../test/googletest/googletest/cmake/Config.cmake.in ../test/googletest/googletest/cmake/gtest.pc.in ../test/googletest/googletest/cmake/gtest_main.pc.in ../test/googletest/googletest/cmake/internal_utils.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../src/CMakeLists.txt ../src/Manager/CMakeLists.txt ../src/Model/CMakeLists.txt ../test/CMakeLists.txt ../test/googletest/CMakeLists.txt ../test/googletest/googlemock/CMakeLists.txt ../test/googletest/googlemock/cmake/gmock.pc.in ../test/googletest/googlemock/cmake/gmock_main.pc.in ../test/googletest/googletest/CMakeLists.txt ../test/googletest/googletest/cmake/Config.cmake.in ../test/googletest/googletest/cmake/gtest.pc.in ../test/googletest/googletest/cmake/gtest_main.pc.in ../test/googletest/googletest/cmake/internal_utils.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
 
 
 #############################################
