@@ -1,6 +1,6 @@
 #ifndef TODOPROJECT_SIGNERWINDOW_H
 #define TODOPROJECT_SIGNERWINDOW_H
-#include <SDL2/SDL.h>
+#include "/usr/local/Cellar/sdl2/2.0.20/include/SDL2/SDL.h"
 
 class SignerWindow {
 public:

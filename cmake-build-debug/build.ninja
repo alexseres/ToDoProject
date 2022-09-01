@@ -114,19 +114,19 @@ build install/strip: phony CMakeFiles/install/strip.util
 #############################################
 # Order-only phony target for todop
 
-build cmake_object_order_depends_target_todop: phony || cmake_object_order_depends_target_manager cmake_object_order_depends_target_models
+build cmake_object_order_depends_target_todop: phony || cmake_object_order_depends_target_manager cmake_object_order_depends_target_models cmake_object_order_depends_target_view
 
 build src/CMakeFiles/todop.dir/main.cpp.o: CXX_COMPILER__todop_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/main.cpp || cmake_object_order_depends_target_todop
   DEP_FILE = src/CMakeFiles/todop.dir/main.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
-  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View -I/usr/local/Cellar/sdl2/2.0.20/include/SDL2 -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp
   OBJECT_DIR = src/CMakeFiles/todop.dir
   OBJECT_FILE_DIR = src/CMakeFiles/todop.dir
 
 build src/CMakeFiles/todop.dir/Utils.cpp.o: CXX_COMPILER__todop_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Utils.cpp || cmake_object_order_depends_target_todop
   DEP_FILE = src/CMakeFiles/todop.dir/Utils.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
-  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View -I/usr/local/Cellar/sdl2/2.0.20/include/SDL2 -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp
   OBJECT_DIR = src/CMakeFiles/todop.dir
   OBJECT_FILE_DIR = src/CMakeFiles/todop.dir
 
@@ -138,10 +138,10 @@ build src/CMakeFiles/todop.dir/Utils.cpp.o: CXX_COMPILER__todop_Debug /Users/ale
 #############################################
 # Link the executable src/todop
 
-build src/todop: CXX_EXECUTABLE_LINKER__todop_Debug src/CMakeFiles/todop.dir/main.cpp.o src/CMakeFiles/todop.dir/Utils.cpp.o | src/Manager/libmanager.a src/Model/libmodels.a /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib || src/Manager/libmanager.a src/Model/libmodels.a
+build src/todop: CXX_EXECUTABLE_LINKER__todop_Debug src/CMakeFiles/todop.dir/main.cpp.o src/CMakeFiles/todop.dir/Utils.cpp.o | src/Manager/libmanager.a src/Model/libmodels.a src/View/libview.a /usr/local/Cellar/sdl2/2.0.20/lib/libSDL2-2.0.0.dylib /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib || src/Manager/libmanager.a src/Model/libmodels.a src/View/libview.a
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model  src/Manager/libmanager.a  src/Model/libmodels.a  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib
-  LINK_PATH = -L/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager   -L/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model
+  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/view  src/Manager/libmanager.a  src/Model/libmodels.a  src/View/libview.a  /usr/local/Cellar/sdl2/2.0.20/lib/libSDL2-2.0.0.dylib  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib
+  LINK_PATH = -L/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager   -L/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model   -L/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/view
   OBJECT_DIR = src/CMakeFiles/todop.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -230,7 +230,6 @@ build cmake_object_order_depends_target_view: phony || src/View/CMakeFiles/view.
 build src/View/CMakeFiles/view.dir/SignerWindow.cpp.o: CXX_COMPILER__view_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/SignerWindow.cpp || cmake_object_order_depends_target_view
   DEP_FILE = src/View/CMakeFiles/view.dir/SignerWindow.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
-  INCLUDES = -I/usr/local/Cellar/sdl2/2.0.20/include/SDL2
   OBJECT_DIR = src/View/CMakeFiles/view.dir
   OBJECT_FILE_DIR = src/View/CMakeFiles/view.dir
 
