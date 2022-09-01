@@ -119,14 +119,14 @@ build cmake_object_order_depends_target_todop: phony || cmake_object_order_depen
 build src/CMakeFiles/todop.dir/main.cpp.o: CXX_COMPILER__todop_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/main.cpp || cmake_object_order_depends_target_todop
   DEP_FILE = src/CMakeFiles/todop.dir/main.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
-  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View -I/usr/local/Cellar/sdl2/2.0.20/include/SDL2 -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View -I/usr/local/Cellar/sdl2/2.0.20/include/SDL2 -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls/ttf/SDL_ttf
   OBJECT_DIR = src/CMakeFiles/todop.dir
   OBJECT_FILE_DIR = src/CMakeFiles/todop.dir
 
 build src/CMakeFiles/todop.dir/Utils.cpp.o: CXX_COMPILER__todop_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Utils.cpp || cmake_object_order_depends_target_todop
   DEP_FILE = src/CMakeFiles/todop.dir/Utils.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
-  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View -I/usr/local/Cellar/sdl2/2.0.20/include/SDL2 -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View -I/usr/local/Cellar/sdl2/2.0.20/include/SDL2 -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Manager/../Model/User.cpp -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls/ttf/SDL_ttf
   OBJECT_DIR = src/CMakeFiles/todop.dir
   OBJECT_FILE_DIR = src/CMakeFiles/todop.dir
 
@@ -230,14 +230,14 @@ build cmake_object_order_depends_target_view: phony || cmake_object_order_depend
 build src/View/CMakeFiles/view.dir/SignerWindow.cpp.o: CXX_COMPILER__view_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/SignerWindow.cpp || cmake_object_order_depends_target_view
   DEP_FILE = src/View/CMakeFiles/view.dir/SignerWindow.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
-  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls/ttf/SDL_ttf
   OBJECT_DIR = src/View/CMakeFiles/view.dir
   OBJECT_FILE_DIR = src/View/CMakeFiles/view.dir
 
 build src/View/CMakeFiles/view.dir/Runner.cpp.o: CXX_COMPILER__view_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Runner.cpp || cmake_object_order_depends_target_view
   DEP_FILE = src/View/CMakeFiles/view.dir/Runner.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
-  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls/ttf/SDL_ttf
   OBJECT_DIR = src/View/CMakeFiles/view.dir
   OBJECT_FILE_DIR = src/View/CMakeFiles/view.dir
 
@@ -340,12 +340,14 @@ build cmake_object_order_depends_target_controls: phony || src/View/Controls/CMa
 build src/View/Controls/CMakeFiles/controls.dir/Button.cpp.o: CXX_COMPILER__controls_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls/Button.cpp || cmake_object_order_depends_target_controls
   DEP_FILE = src/View/Controls/CMakeFiles/controls.dir/Button.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls/ttf/SDL_ttf
   OBJECT_DIR = src/View/Controls/CMakeFiles/controls.dir
   OBJECT_FILE_DIR = src/View/Controls/CMakeFiles/controls.dir
 
 build src/View/Controls/CMakeFiles/controls.dir/Mouse.cpp.o: CXX_COMPILER__controls_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls/Mouse.cpp || cmake_object_order_depends_target_controls
   DEP_FILE = src/View/Controls/CMakeFiles/controls.dir/Mouse.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
+  INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Controls/ttf/SDL_ttf
   OBJECT_DIR = src/View/Controls/CMakeFiles/controls.dir
   OBJECT_FILE_DIR = src/View/Controls/CMakeFiles/controls.dir
 
