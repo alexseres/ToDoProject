@@ -32,10 +32,10 @@ bool SignerWindow::init(){
         SDL_Quit();
         return false;
     }
-    m_buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
-    memset(m_buffer, 0, SCREEN_WIDTH*SCREEN_HEIGHT*sizeof(Uint32)); //get maxvalue
-
-    m_buffer[30000] = 0xFFFFFFFF;
+//    m_buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
+//    memset(m_buffer, 0, SCREEN_WIDTH*SCREEN_HEIGHT*sizeof(Uint32)); //get maxvalue
+//
+//    m_buffer[30000] = 0xFFFFFFFF;
 //    for(int i=0;i<SCREEN_WIDTH * SCREEN_HEIGHT;i++){
 //        m_buffer[i] = 0x00FF00FF;
 //    }
@@ -46,9 +46,34 @@ bool SignerWindow::init(){
 bool SignerWindow::processEvents(){
     SDL_Event event;
     while(SDL_PollEvent(&event)){
-        if(event.type == SDL_QUIT){
-            return false;
-        }
+       if(event.type == SDL_QUIT)
+           return false;
     }
     return true;
+}
+
+
+void SignerWindow::update(){
+
+    SDL_UpdateTexture(m_texture,
+                      NULL,
+                      m_buffer,
+                      SCREEN_WIDTH * sizeof(Uint32));
+
+    SDL_RenderClear(m_renderer);
+    SDL_RenderCopy(m_renderer, m_texture, NULL, NULL);
+    SDL_RenderPresent(m_renderer);
+
+//    SDL_SetRenderDrawColor(m_renderer, 100, 0,0,134);
+//    SDL_RenderFillRect(m_renderer, &rect);
+//    SDL_RenderPresent(m_renderer);
+}
+
+void SignerWindow::close(){
+    delete [] m_buffer;
+    SDL_DestroyRenderer(m_renderer);
+    SDL_DestroyTexture(m_texture);
+    SDL_DestroyWindow(m_window);
+    SDL_Quit();
+
 }
