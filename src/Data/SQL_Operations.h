@@ -3,8 +3,8 @@
 #include <iostream>
 #include <pqxx/pqxx>
 
-#include "../Utils.h"
-#include "../Model/User.h"
+#include "../Utils/Utils.h"
+
 
 class SQL_Operations {
 private:
