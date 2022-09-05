@@ -1,4 +1,4 @@
-add_library(models UserHandler.cpp UserHandler.h User.cpp User.h)
+add_library(models UserHandler.cpp UserHandler.h User.cpp User.h Table.h Table.cpp Card.h Card.cpp)
 target_include_directories(
     models
     PUBLIC
