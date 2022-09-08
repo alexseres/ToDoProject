@@ -333,6 +333,14 @@ build src/View/CMakeFiles/view.dir/Signer.cpp.o: CXX_COMPILER__view_Debug /Users
   OBJECT_DIR = src/View/CMakeFiles/view.dir
   OBJECT_FILE_DIR = src/View/CMakeFiles/view.dir
 
+build src/View/CMakeFiles/view.dir/MainView.cpp.o: CXX_COMPILER__view_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/MainView.cpp || cmake_object_order_depends_target_view
+  DEFINES = -Dview_EXPORTS
+  DEP_FILE = src/View/CMakeFiles/view.dir/MainView.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++17
+  INCLUDES = -I/usr/local/include
+  OBJECT_DIR = src/View/CMakeFiles/view.dir
+  OBJECT_FILE_DIR = src/View/CMakeFiles/view.dir
+
 
 # =============================================================================
 # Link build statements for SHARED_LIBRARY target view
@@ -341,7 +349,7 @@ build src/View/CMakeFiles/view.dir/Signer.cpp.o: CXX_COMPILER__view_Debug /Users
 #############################################
 # Link the shared library src/View/libview.dylib
 
-build src/View/libview.dylib: CXX_SHARED_LIBRARY_LINKER__view_Debug src/View/CMakeFiles/view.dir/Signer.cpp.o | src/Model/libmodels.dylib src/Data/libdata_manager.dylib /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Utils/libutils.dylib || src/Data/libdata_manager.dylib src/Model/libmodels.dylib src/Utils/libutils.dylib
+build src/View/libview.dylib: CXX_SHARED_LIBRARY_LINKER__view_Debug src/View/CMakeFiles/view.dir/Signer.cpp.o src/View/CMakeFiles/view.dir/MainView.cpp.o | src/Model/libmodels.dylib src/Data/libdata_manager.dylib /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Utils/libutils.dylib || src/Data/libdata_manager.dylib src/Model/libmodels.dylib src/Utils/libutils.dylib
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
   INSTALLNAME_DIR = @rpath/
   LANGUAGE_COMPILE_FLAGS = -g
@@ -449,6 +457,22 @@ build src/Model/CMakeFiles/models.dir/User.cpp.o: CXX_COMPILER__models_Debug /Us
   OBJECT_DIR = src/Model/CMakeFiles/models.dir
   OBJECT_FILE_DIR = src/Model/CMakeFiles/models.dir
 
+build src/Model/CMakeFiles/models.dir/Table.cpp.o: CXX_COMPILER__models_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model/Table.cpp || cmake_object_order_depends_target_models
+  DEFINES = -Dmodels_EXPORTS
+  DEP_FILE = src/Model/CMakeFiles/models.dir/Table.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++17
+  INCLUDES = -I/usr/local/include
+  OBJECT_DIR = src/Model/CMakeFiles/models.dir
+  OBJECT_FILE_DIR = src/Model/CMakeFiles/models.dir
+
+build src/Model/CMakeFiles/models.dir/Card.cpp.o: CXX_COMPILER__models_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model/Card.cpp || cmake_object_order_depends_target_models
+  DEFINES = -Dmodels_EXPORTS
+  DEP_FILE = src/Model/CMakeFiles/models.dir/Card.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++17
+  INCLUDES = -I/usr/local/include
+  OBJECT_DIR = src/Model/CMakeFiles/models.dir
+  OBJECT_FILE_DIR = src/Model/CMakeFiles/models.dir
+
 
 # =============================================================================
 # Link build statements for SHARED_LIBRARY target models
@@ -457,7 +481,7 @@ build src/Model/CMakeFiles/models.dir/User.cpp.o: CXX_COMPILER__models_Debug /Us
 #############################################
 # Link the shared library src/Model/libmodels.dylib
 
-build src/Model/libmodels.dylib: CXX_SHARED_LIBRARY_LINKER__models_Debug src/Model/CMakeFiles/models.dir/UserHandler.cpp.o src/Model/CMakeFiles/models.dir/User.cpp.o | /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Data/libdata_manager.dylib src/Utils/libutils.dylib /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib || src/Data/libdata_manager.dylib src/Utils/libutils.dylib
+build src/Model/libmodels.dylib: CXX_SHARED_LIBRARY_LINKER__models_Debug src/Model/CMakeFiles/models.dir/UserHandler.cpp.o src/Model/CMakeFiles/models.dir/User.cpp.o src/Model/CMakeFiles/models.dir/Table.cpp.o src/Model/CMakeFiles/models.dir/Card.cpp.o | /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Data/libdata_manager.dylib src/Utils/libutils.dylib /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib || src/Data/libdata_manager.dylib src/Utils/libutils.dylib
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
   INSTALLNAME_DIR = @rpath/
   LANGUAGE_COMPILE_FLAGS = -g

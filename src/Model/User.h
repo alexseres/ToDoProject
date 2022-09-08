@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include "Table.h"
+using namespace std;
 
 class User {
 private:
@@ -8,12 +10,13 @@ private:
     std::string user_name;
     std::string hashed_value;
     std::string salt;
-    std::vector<Table> *tables;
+    vector<Table> tables;
 public:
-    User(std::string UUID, std::string userName, std::string hashedValue, std::string salt) {
+    User(std::string UUID, std::string userName, std::string hashedValue, std::string _salt, vector<Table> _tables):tables(_tables){
         uuid= UUID;
         user_name = userName;
         hashed_value = hashedValue;
-        salt = salt;
+        salt = _salt;
     }
+
 };
