@@ -19,6 +19,6 @@ public:
         hashed_value = hashedValue;
         salt = _salt;
     }
-    vector<Table> get_tables() { return tables;}
+    vector<Table>& get_tables() { return tables;}
 
 };

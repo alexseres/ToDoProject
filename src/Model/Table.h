@@ -13,7 +13,9 @@ private:
 public:
     Table(std::string userId, std::string tableId, std::string name, vector<Card> _cards):user_id(userId), table_id(tableId), table_name(name), cards(_cards){}
     std::string get_table_name() { return table_name; }
-    vector<Card> get_cards(){ return cards;}
+    vector<Card>& get_cards(){ return cards;}
+
+
 };
 
 

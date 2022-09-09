@@ -55,7 +55,7 @@ unsigned long const Utils::hash_password(std::string str){
 int Utils::get_longest_vector_size(std::vector<Table> tables) {
     int table_size = tables[0].get_cards().size();
     for(Table t : tables){
-        if(t.get_cards().size() < table_size){
+        if(t.get_cards().size() > table_size){
             table_size = t.get_cards().size();
         }
     }
