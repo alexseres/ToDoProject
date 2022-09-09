@@ -74,7 +74,7 @@ User UserHandler::get_user(std::string user_name, std::string password, std::str
             std::string uuid = pqxx::to_string(r[0][0].c_str());
             std::vector<Table> tables;
             get_tables(uuid, tables);
-            return User(uuid, pqxx::to_string(r[0][1].c_str()), hash_value_from_db, pqxx::to_string(r[0][3].c_str()), tables);
+            return User(uuid, pqxx::to_string(r[0][1].c_str()), hash_value_from_db, pqxx::to_string(r[0][3].c_str()), password, tables);
         }
         else{
             throw std::runtime_error("password is wrong");
@@ -90,4 +90,12 @@ User UserHandler::get_user(std::string user_name, std::string password, std::str
         std::cerr << e.what() << std::endl;
         throw;
     }
+}
+
+void UserHandler::add_card_for_table(std::string table_uuid, std::string card_name) {
+    std::string card_uuid = Utils::generateUUID();
+    std::string sql_statement_add_tables = "INSERT INTO \"cards\"(" \
+                        "table_id, card_id, card_name)" \
+                        "VALUES ('" + table_uuid + "', '" + card_uuid + "',  '" + card_name + "');";
+    sql_manager.insert_data(sql_statement_add_tables);
 }

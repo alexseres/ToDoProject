@@ -94,7 +94,7 @@ void Signer::sign_in_asker() {
 void Signer::sign_in(std::string username, std::string password, std::string salt) {
     try{
         User user = handler.get_user(username, password, salt);
-        MainView main_view(user);
+        MainView main_view(handler, user);
         main_view.operate();
 
     }
