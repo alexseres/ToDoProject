@@ -1,18 +1,21 @@
-//
-// Created by Alex Seres on 05/09/2022.
-//
 
 #ifndef TODOPROJECT_MAINVIEW_H
 #define TODOPROJECT_MAINVIEW_H
 #include <iostream>
+#include <utility>
 #include "../Model/User.h"
+#include <iomanip>
+#include <sstream>
+#include "../Utils/Utils.h"
 
 
 class MainView {
 private:
     User user;
+
 public:
-    MainView(const User& _user): user(_user){};
+    MainView(User _user): user(std::move(_user)){};
+    void print_user_info();
     void operate();
 };
 

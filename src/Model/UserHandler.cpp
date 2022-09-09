@@ -10,7 +10,7 @@ void UserHandler::add_table(std::string table_name, std::string user_uuid) {
 
 
 void UserHandler::get_tables(std::string user_uuid, std::vector<Table> &tables) {
-    std::string sql_statement = "SELECT * FROM \"tables\" WHERE user_id='" + user_uuid + ";";
+    std::string sql_statement = "SELECT * FROM \"tables\" WHERE user_id='" + user_uuid + "';";
     pqxx::result r = sql_manager.get_data(sql_statement);
     for(const auto &row : r){
         std::vector<Card> cards;
@@ -22,7 +22,7 @@ void UserHandler::get_tables(std::string user_uuid, std::vector<Table> &tables) 
 }
 
 void UserHandler::get_cards(std::string table_uuid, std::vector<Card> &cards) {
-    std::string sql_statement = "SELECT * FROM \"cards\" WHERE user_id='" + table_uuid + ";";
+    std::string sql_statement = "SELECT * FROM \"cards\" WHERE table_id='" + table_uuid + "';";
     pqxx::result r = sql_manager.get_data(sql_statement);
     for(const auto &row : r){
         //           tableuuid, carduuid, description
@@ -61,8 +61,6 @@ int UserHandler::create_user(std::string user_name, std::string password, std::s
         return 1;
     }
 }
-
-
 
 User UserHandler::get_user(std::string user_name, std::string password, std::string salt){
     try {

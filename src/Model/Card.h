@@ -13,6 +13,7 @@ private:
     std::string descripton;
 public:
     Card(std::string tableUuid, std::string cardUuid, std::string desc):descripton(desc), card_uuid(cardUuid), table_uuid(tableUuid){};
+    string get_description(){ return descripton; }
 };
 
 

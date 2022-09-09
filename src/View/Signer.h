@@ -3,6 +3,8 @@
 #include <iostream>
 #include "../Model/UserHandler.h"
 #include "../Model/User.h"
+#include "MainView.h"
+
 class Signer {
 private:
     UserHandler handler;
