@@ -99,3 +99,11 @@ void UserHandler::add_card_for_table(std::string table_uuid, std::string card_na
                         "VALUES ('" + table_uuid + "', '" + card_uuid + "',  '" + card_name + "');";
     sql_manager.insert_data(sql_statement_add_tables);
 }
+
+void UserHandler::move_card(std::string card_id, std::string new_table_id) {
+
+    std::string update_card_statement = "UPDATE \"cards\"" \
+                                    "SET table_id = '" + new_table_id + "'" \
+                                    "WHERE card_id = '" + card_id + "';";
+    sql_manager.insert_data(update_card_statement);
+}

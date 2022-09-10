@@ -19,6 +19,7 @@ public:
     void get_tables(std::string user_uuid, std::vector<Table> &tables);
     void get_cards(std::string table_uuid, std::vector<Card> &cards);
     void add_card_for_table(std::string table_uuid, std::string card_name);
+    void move_card(std::string card_id, std::string new_table_id);
 };
 
 

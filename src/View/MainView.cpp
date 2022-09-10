@@ -5,7 +5,7 @@
 void MainView::print_user_info(){
     std::cout << "****************************************************************************************************************" << std::endl;
     std::cout << "* Options:" << std::endl;
-    std::cout << "* '1' = Add card, '2' Modify card, '3' Delete Card, '4' Quit from account" << std::endl;
+    std::cout << "* '1' = Add card, '2' Move card, '3' Delete Card, '4' Quit from account" << std::endl;
     std::cout << "* " << std::endl;
     std::cout << "****************************************************************************************************************" << std::endl;
     for(int i = 0;i < user.get_tables().size(); i++){
@@ -50,6 +50,7 @@ void MainView::option_manager(bool &is_accepted) {
     std::cin >> choice;
     switch(choice) {
         case 4:
+            std::cout << "* You have quit! *" << std::endl;
             is_accepted = false;
             break;
         case 1:
@@ -64,8 +65,31 @@ void MainView::option_manager(bool &is_accepted) {
                 add_card_option(table_choice);
                 break;
             }
+        case 2:
+            std::cout << "* Which card you want to move to which table? Please select a card id! *" << std::endl;
+            int card_choice;
+            cin >> card_choice;
+            if (card_choice < 1 || card_choice > card_counter) {
+                std::cout << "* There is no such a card id, try again! *" << std::endl;
+                break;
+            }
+
+            std::cout << "* Now select a table id where you want to move the card! *" << std::endl;
+            int table_id_choice;
+            cin >> table_id_choice;
+            bool is_the_same = check_if_card_has_not_the_same_table_id_to_move(card_choice, table_id_choice);
+            if(!is_the_same || table_id_choice > table_counter){
+                std::cout << "* There is no such a table id, try again! *" << std::endl;
+                break;
+            }
+            else{
+                move_card(card_choice, table_id_choice);
+                break;
+            }
     }
 }
+
+
 
 
 void MainView::add_card_option(int table_view_id) {
@@ -83,10 +107,11 @@ void MainView::add_card_option(int table_view_id) {
 
 
 map<int, Card> MainView::initialize_card_map(std::vector<Table> &tables){
-    int table_counter = 1;
-    int card_counter = 1;
+    table_counter = 1;
+    card_counter = 1;
     for(int i = 0;i < tables.size();i++){
         tables[i].set_view_id(table_counter);
+        table_map.insert(make_pair(table_counter, tables[i]));
         for(int j = 0;j < tables[i].get_cards().size();j++){
             tables[i].get_cards()[j].set_view_id(card_counter);
             card_map.insert(make_pair(card_counter, tables[i].get_cards()[j]));
@@ -104,4 +129,25 @@ std::string MainView::get_table_id_by_view_id(int id) {
         }
     }
     return "Not found";
+}
+
+bool MainView::check_if_card_has_not_the_same_table_id_to_move(int card_view_id, int table_view_id) {
+    for(Table table: user.get_tables()){
+        for(Card card: table.get_cards()){
+            if(card.get_view_id() == card_view_id){
+                if(table.get_view_id() == table_view_id){
+                    std::cout << "* What you have choosen table to move the card, it is the same! Choose a new one *" << std::endl;
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+bool MainView::move_card(int card_choice, int new_table_id) {
+    std::string card_id = card_map.find(card_choice)->second.get_card_id();
+    std::string table_id = table_map.find(new_table_id)->second.get_table_id();
+    handler.move_card(card_id, table_id);
+    return false;
 }
