@@ -65,6 +65,17 @@ void MainView::option_manager(bool &is_accepted) {
                 add_card_option(table_choice);
                 break;
             }
+        case 3:
+            std::cout << "* Which card you want to delete? Please select a card id! *" << std::endl;
+            int card_id;
+            cin >> card_id;
+            if (card_id < 1 || card_id > card_counter) {
+                std::cout << "* There is no such a card id, try again! *" << std::endl;
+                break;
+            }
+            delete_card(card_id);
+            break;
+
         case 2:
             std::cout << "* Which card you want to move to which table? Please select a card id! *" << std::endl;
             int card_choice;
@@ -86,10 +97,14 @@ void MainView::option_manager(bool &is_accepted) {
                 move_card(card_choice, table_id_choice);
                 break;
             }
+
     }
 }
 
-
+void MainView::delete_card(int card_view_id) {
+    std::string card_id = card_map.find(card_view_id)->second.get_card_id();
+    handler.delete_card(card_id);
+}
 
 
 void MainView::add_card_option(int table_view_id) {
@@ -145,9 +160,8 @@ bool MainView::check_if_card_has_not_the_same_table_id_to_move(int card_view_id,
     return true;
 }
 
-bool MainView::move_card(int card_choice, int new_table_id) {
+void MainView::move_card(int card_choice, int new_table_id) {
     std::string card_id = card_map.find(card_choice)->second.get_card_id();
     std::string table_id = table_map.find(new_table_id)->second.get_table_id();
     handler.move_card(card_id, table_id);
-    return false;
 }

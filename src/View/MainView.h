@@ -28,7 +28,8 @@ public:
     void add_card_option(int table_view_id);
     std::string get_table_id_by_view_id(int id);
     bool check_if_card_has_not_the_same_table_id_to_move(int card_view_id, int table_view_id);
-    bool move_card(int card_choice, int new_table_id);
+    void move_card(int card_choice, int new_table_id);
+    void delete_card(int card_view_id);
 };
 
 

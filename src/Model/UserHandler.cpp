@@ -107,3 +107,10 @@ void UserHandler::move_card(std::string card_id, std::string new_table_id) {
                                     "WHERE card_id = '" + card_id + "';";
     sql_manager.insert_data(update_card_statement);
 }
+
+void UserHandler::delete_card(std::string card_id) {
+    std::string delete_card_statement = "DELETE FROM \"cards\" " \
+                                    "WHERE card_id = '" + card_id + "';";
+    sql_manager.insert_data(delete_card_statement);
+}
+

@@ -9,6 +9,8 @@
 #include "../Data/SQL_Operations.h"
 
 
+
+
 class UserHandler {
 private:
     SQL_Operations sql_manager;
@@ -20,6 +22,7 @@ public:
     void get_cards(std::string table_uuid, std::vector<Card> &cards);
     void add_card_for_table(std::string table_uuid, std::string card_name);
     void move_card(std::string card_id, std::string new_table_id);
+    void delete_card(std::string card_id);
 };
 
 
