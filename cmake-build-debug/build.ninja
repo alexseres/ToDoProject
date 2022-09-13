@@ -684,14 +684,21 @@ build cmake_object_order_depends_target_td_test: phony || cmake_object_order_dep
 build test/CMakeFiles/td_test.dir/user_handler_test.cpp.o: CXX_COMPILER__td_test_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/user_handler_test.cpp || cmake_object_order_depends_target_td_test
   DEP_FILE = test/CMakeFiles/td_test.dir/user_handler_test.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIE -std=gnu++17
-  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Data -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
+  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Data -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
+  OBJECT_DIR = test/CMakeFiles/td_test.dir
+  OBJECT_FILE_DIR = test/CMakeFiles/td_test.dir
+
+build test/CMakeFiles/td_test.dir/data_sql_test.cpp.o: CXX_COMPILER__td_test_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/data_sql_test.cpp || cmake_object_order_depends_target_td_test
+  DEP_FILE = test/CMakeFiles/td_test.dir/data_sql_test.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIE -std=gnu++17
+  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Data -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
   OBJECT_DIR = test/CMakeFiles/td_test.dir
   OBJECT_FILE_DIR = test/CMakeFiles/td_test.dir
 
 build test/CMakeFiles/td_test.dir/__/src/Utils/Utils.cpp.o: CXX_COMPILER__td_test_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Utils/Utils.cpp || cmake_object_order_depends_target_td_test
   DEP_FILE = test/CMakeFiles/td_test.dir/__/src/Utils/Utils.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIE -std=gnu++17
-  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Data -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
+  INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Data -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
   OBJECT_DIR = test/CMakeFiles/td_test.dir
   OBJECT_FILE_DIR = test/CMakeFiles/td_test.dir/__/src/Utils
 
@@ -703,7 +710,7 @@ build test/CMakeFiles/td_test.dir/__/src/Utils/Utils.cpp.o: CXX_COMPILER__td_tes
 #############################################
 # Link the executable test/td_test
 
-build test/td_test: CXX_EXECUTABLE_LINKER__td_test_Debug test/CMakeFiles/td_test.dir/user_handler_test.cpp.o test/CMakeFiles/td_test.dir/__/src/Utils/Utils.cpp.o | /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Model/libmodels.dylib lib/libgtest_main.1.12.1.dylib src/Data/libdata_manager.dylib /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Utils/libutils.dylib lib/libgtest.1.12.1.dylib || lib/libgtest.dylib lib/libgtest_main.dylib src/Data/libdata_manager.dylib src/Model/libmodels.dylib src/Utils/libutils.dylib lib/libgtest_main.dylib lib/libgtest.dylib
+build test/td_test: CXX_EXECUTABLE_LINKER__td_test_Debug test/CMakeFiles/td_test.dir/user_handler_test.cpp.o test/CMakeFiles/td_test.dir/data_sql_test.cpp.o test/CMakeFiles/td_test.dir/__/src/Utils/Utils.cpp.o | /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Model/libmodels.dylib lib/libgtest_main.1.12.1.dylib src/Data/libdata_manager.dylib /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Utils/libutils.dylib lib/libgtest.1.12.1.dylib || lib/libgtest.dylib lib/libgtest_main.dylib src/Data/libdata_manager.dylib src/Model/libmodels.dylib src/Utils/libutils.dylib lib/libgtest_main.dylib lib/libgtest.dylib
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
   LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Model -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/lib -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Data -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Utils  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/Model/libmodels.dylib  lib/libgtest_main.1.12.1.dylib  src/Data/libdata_manager.dylib  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/Utils/libutils.dylib  lib/libgtest.1.12.1.dylib
   OBJECT_DIR = test/CMakeFiles/td_test.dir

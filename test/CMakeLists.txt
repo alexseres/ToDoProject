@@ -5,6 +5,7 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 add_executable(
   td_test
   user_handler_test.cpp
+  data_sql_test.cpp
   /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Utils/Utils.cpp
 )
 
@@ -14,6 +15,7 @@ target_include_directories(
   /usr/local/include
   /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Data
   /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model
+  /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View
 )
 
 target_link_libraries(

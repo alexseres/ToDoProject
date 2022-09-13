@@ -22,7 +22,7 @@ private:
 public:
     MainView(UserHandler _handler,User _user): user(std::move(_user)), handler(std::move(_handler)){};
     void print_user_info();
-    void operate();
+    bool operate();
     map<int, Card> initialize_card_map(std::vector<Table> &tables);
     void option_manager(bool &is_accepted);
     void add_card_option(int table_view_id);

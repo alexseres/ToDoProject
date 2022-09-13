@@ -25,7 +25,7 @@ void Signer::introduction() {
                 running = false;
             }
             else{
-                std::cout <<"Please try again" << std::endl;
+                std::cout <<"There is no such an option. Please try again" << std::endl;
             }
         }
     }
@@ -65,9 +65,8 @@ void Signer::registration() {
         int success = handler.create_user(user_name, password, salt);
         if(success == 0){
             std::cout << "User has been created" << std::endl;
-            sign_in(user_name, password, salt);
+            sign_in(user_name, password, salt, running);
         }
-
     }
 }
 
@@ -87,16 +86,15 @@ void Signer::sign_in_asker() {
             std::cout << "One of them at least empty, please try again" << std::endl;
             continue;
         }
-        sign_in(user_name, password, salt);
+        sign_in(user_name, password, salt, running);
     }
 }
 
-void Signer::sign_in(std::string username, std::string password, std::string salt) {
+void Signer::sign_in(std::string username, std::string password, std::string salt, bool &runner) {
     try{
         User user = handler.get_user(username, password, salt);
         MainView main_view(handler, user);
-        main_view.operate();
-
+        runner = main_view.operate();
     }
     catch (const std::exception &e){
         std::cout << e.what() << std::endl;

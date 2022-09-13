@@ -7,6 +7,7 @@ target_include_directories(
     )
 target_link_libraries(
     models
+    PUBLIC
     /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib
     data_manager
     utils

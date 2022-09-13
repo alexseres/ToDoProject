@@ -33,7 +33,7 @@ void MainView::print_user_info(){
 }
 
 
-void MainView::operate() {
+bool MainView::operate() {
     bool is_accepted = true;
     while(is_accepted){
         user = handler.get_user(user.get_name(), user.get_password(), user.get_salt());
@@ -41,7 +41,7 @@ void MainView::operate() {
         print_user_info();
         option_manager(is_accepted);
     }
-
+    return false;
 }
 
 
@@ -88,16 +88,18 @@ void MainView::option_manager(bool &is_accepted) {
             std::cout << "* Now select a table id where you want to move the card! *" << std::endl;
             int table_id_choice;
             cin >> table_id_choice;
-            bool is_the_same = check_if_card_has_not_the_same_table_id_to_move(card_choice, table_id_choice);
+            bool is_the_same;
+            is_the_same = check_if_card_has_not_the_same_table_id_to_move(card_choice, table_id_choice);
             if(!is_the_same || table_id_choice > table_counter){
                 std::cout << "* There is no such a table id, try again! *" << std::endl;
-                break;
             }
             else{
                 move_card(card_choice, table_id_choice);
-                break;
             }
-
+            break;
+        default:
+            std::cout << "* There is no such an option, try again! *" << std::endl;
+            break;
     }
 }
 
@@ -108,11 +110,11 @@ void MainView::delete_card(int card_view_id) {
 
 
 void MainView::add_card_option(int table_view_id) {
-    std::cout << "* Give a name for the card! At least 2, maximum 13 character can it be" << std::endl;
+    std::cout << "* Give a name for the card! At least 2, maximum 13 character can it be *" << std::endl;
     std::string card_name;
     cin >> card_name;
     if(card_name.empty() || card_name.size() > 13){
-        std::cout << "* Requirement not been reached. Try Again!" << std::endl;
+        std::cout << "* Requirement not been reached. Try Again!* " << std::endl;
         return;
     }
     std::string table_id = get_table_id_by_view_id(table_view_id);

@@ -12,7 +12,7 @@ public:
     void introduction();
     void registration();
     void sign_in_asker();
-    void sign_in(std::string username, std::string password, std::string salt);
+    void sign_in(std::string username, std::string password, std::string salt, bool &runner);
 };
 
 

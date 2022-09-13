@@ -14,6 +14,7 @@ public:
     bool check_connection(pqxx::connection& connection_object);
     int insert_data(std::string statement);
     pqxx::result get_data(std::string statement);
+    std::string get_connection_string(){return connection_string;}
 };
 
 
