@@ -1,4 +1,4 @@
-add_library(data_manager SQL_Operations.cpp SQL_Operations.h)
+add_library(data_manager SQL_Operations.cpp SQL_Operations.h SQL_Abstract.h SQL_Abstract.cpp)
 target_include_directories(
     data_manager
     PUBLIC

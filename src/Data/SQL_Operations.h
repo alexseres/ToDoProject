@@ -1,20 +1,16 @@
 #ifndef TODOPROJECT_SQL_OPERATIONS_H
 #define TODOPROJECT_SQL_OPERATIONS_H
-#include <iostream>
-#include <pqxx/pqxx>
+#include "SQL_Abstract.h"
 
-#include "../Utils/Utils.h"
-
-
-class SQL_Operations {
+class SQL_Operations : public SQL_Abstract{
 private:
     std::string connection_string = Utils::getEnvironmentVariableConnectionString();
 
 public:
-    bool check_connection(pqxx::connection& connection_object);
-    int insert_data(std::string statement);
-    pqxx::result get_data(std::string statement);
-    std::string get_connection_string(){return connection_string;}
+    bool check_connection(pqxx::connection& connection_object) override;
+    int insert_data(std::string statement) override;
+    pqxx::result get_data(std::string statement) override;
+    std::string get_connection_string() override{return connection_string;}
 };
 
 

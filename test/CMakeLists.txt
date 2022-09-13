@@ -24,4 +24,5 @@ target_link_libraries(
   data_manager
   models
   GTest::gtest_main
+  GTest::gmock
 )

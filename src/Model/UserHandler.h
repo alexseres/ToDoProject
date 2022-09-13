@@ -9,12 +9,12 @@
 #include "../Data/SQL_Operations.h"
 
 
-
-
 class UserHandler {
 private:
     SQL_Operations sql_manager;
 public:
+    explicit UserHandler(SQL_Operations _sql): sql_manager(std::move(_sql)) {};
+
     int create_user(std::string user_name,std::string password, std::string salt);
     User get_user(std::string user_name, std::string password, std::string salt);
     void add_table(std::string table_name, std::string user_uuid);
