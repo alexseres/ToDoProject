@@ -8,6 +8,6 @@ target_include_directories(
 target_link_libraries(
     data_manager
     PUBLIC
-    /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib
+    /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx-7.7.dylib
     utils
 )

@@ -7,7 +7,7 @@
 class Utils {
 public:
     static std::string generateUUID();
-    std::string static const getEnvironmentVariableConnectionString();
+    std::string static getEnvironmentVariableConnectionString();
     unsigned long static const hash_password(std::string str);
     int static get_longest_vector_size(std::vector<Table> tables);
 

@@ -2,12 +2,12 @@
 
 int SQL_Operations::insert_data(std::string statement) {
     try {
-        pqxx::connection connection_object(connection_string);
+        std::string conn_str = Utils::getEnvironmentVariableConnectionString();
+        pqxx::connection connection_object(conn_str);
         if (!check_connection(connection_object)){
             std::cerr <<"connection has not been established"<< std::endl;
             return 1;
         }
-
         /* Create a transactional object. */
         pqxx::work W(connection_object);
         /* Execute SQL query */
@@ -32,10 +32,9 @@ pqxx::result SQL_Operations::get_data(std::string statement) {
 
 }
 
-bool SQL_Operations::check_connection(pqxx::connection& connection_object) {
+bool SQL_Operations::check_connection(pqxx::connection &connection_object) {
     bool hasConnected;
     try {
-        pqxx::connection connection_object(connection_string);
         if (connection_object.is_open()) {
             std::cout << "Opened database successfully: " << connection_object.dbname() << std::endl;
             hasConnected = true;
@@ -43,7 +42,6 @@ bool SQL_Operations::check_connection(pqxx::connection& connection_object) {
             std::cout << "Can't open database" << std::endl;
             hasConnected = false;
         }
-        connection_object.close();
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
         hasConnected = false;

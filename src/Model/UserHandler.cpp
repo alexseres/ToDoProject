@@ -1,32 +1,38 @@
 #include "UserHandler.h"
 
-void UserHandler::add_table(std::string table_name, std::string user_uuid) {
+bool UserHandler::add_table(std::string table_name, std::string user_uuid) {
     std::string table_uuid = Utils::generateUUID();
     std::string sql_statement_add_tables = "INSERT INTO \"tables\"(" \
                         "user_id, table_id, table_name)" \
                         "VALUES ('" + user_uuid + "', '" + table_uuid + "',  '" + table_name + "');";
-    sql_manager.insert_data(sql_statement_add_tables);
+    int result = sql_manager->insert_data(sql_statement_add_tables);
+    return result == 1;
 }
 
 
 void UserHandler::get_tables(std::string user_uuid, std::vector<Table> &tables) {
     std::string sql_statement = "SELECT * FROM \"tables\" WHERE user_id='" + user_uuid + "';";
-    pqxx::result r = sql_manager.get_data(sql_statement);
+    pqxx::result r = sql_manager->get_data(sql_statement);
     for(const auto &row : r){
+        std::string table_uuid = row[0].c_str();
+        std::string table_name = row[1].c_str();
+        std::string user_uuid = row[2].c_str();
         std::vector<Card> cards;
-        std::string table_uuid = row[1].c_str();
         get_cards(table_uuid, cards);
-        Table table(row[0].c_str(), table_uuid, row[2].c_str(), cards);
+        Table table(user_uuid, table_uuid, table_name, cards);
         tables.push_back(table);
     }
 }
 
 void UserHandler::get_cards(std::string table_uuid, std::vector<Card> &cards) {
     std::string sql_statement = "SELECT * FROM \"cards\" WHERE table_id='" + table_uuid + "';";
-    pqxx::result r = sql_manager.get_data(sql_statement);
+    pqxx::result r = sql_manager->get_data(sql_statement);
     for(const auto &row : r){
-        //           tableuuid, carduuid, description
-        Card card(row[0].c_str(), row[1].c_str(), row[2].c_str());
+        std::string card_uuid = row[0].c_str();
+        std::string card_name = row[1].c_str();
+        std::string table_uuid = row[2].c_str();
+
+        Card card(table_uuid, card_uuid, card_name);
         cards.push_back(card);
     }
 }
@@ -39,7 +45,7 @@ int UserHandler::create_user(std::string user_name, std::string password, std::s
         std::string sql_statement = "INSERT INTO \"users\"(" \
                       "user_id, user_name, hashed_value, salt)" \
                       "VALUES ('" + user_uuid + "', '" + user_name + "', '" + hashed_password + "', '" + salt + "');";
-        int suceeded = sql_manager.insert_data(sql_statement);
+        int suceeded = sql_manager->insert_data(sql_statement);
         if(suceeded == 0){
             add_table("On Progress", user_uuid);
             add_table("On Waiting", user_uuid);
@@ -65,7 +71,7 @@ int UserHandler::create_user(std::string user_name, std::string password, std::s
 User UserHandler::get_user(std::string user_name, std::string password, std::string salt){
     try {
         std::string sql_statement = "SELECT * FROM \"users\" WHERE user_name='" + user_name + "' AND salt='" + salt + "';";
-        pqxx::result r = sql_manager.get_data(sql_statement);
+        pqxx::result r = sql_manager->get_data(sql_statement);
 
         std::string given_hashed_password = std::to_string(Utils::hash_password(password + salt));
         std::string hash_value_from_db = pqxx::to_string(r[0][2].c_str());
@@ -97,7 +103,7 @@ void UserHandler::add_card_for_table(std::string table_uuid, std::string card_na
     std::string sql_statement_add_tables = "INSERT INTO \"cards\"(" \
                         "table_id, card_id, card_name)" \
                         "VALUES ('" + table_uuid + "', '" + card_uuid + "',  '" + card_name + "');";
-    sql_manager.insert_data(sql_statement_add_tables);
+    sql_manager->insert_data(sql_statement_add_tables);
 }
 
 void UserHandler::move_card(std::string card_id, std::string new_table_id) {
@@ -105,12 +111,12 @@ void UserHandler::move_card(std::string card_id, std::string new_table_id) {
     std::string update_card_statement = "UPDATE \"cards\"" \
                                     "SET table_id = '" + new_table_id + "'" \
                                     "WHERE card_id = '" + card_id + "';";
-    sql_manager.insert_data(update_card_statement);
+    sql_manager->insert_data(update_card_statement);
 }
 
 void UserHandler::delete_card(std::string card_id) {
     std::string delete_card_statement = "DELETE FROM \"cards\" " \
                                     "WHERE card_id = '" + card_id + "';";
-    sql_manager.insert_data(delete_card_statement);
+    sql_manager->insert_data(delete_card_statement);
 }
 

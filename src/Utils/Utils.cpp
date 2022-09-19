@@ -35,15 +35,13 @@ std::string Utils::generateUUID() {
 }
 
 
-std::string const Utils::getEnvironmentVariableConnectionString(){
-
+std::string Utils::getEnvironmentVariableConnectionString(){
     const char *conn_string = getenv("todop_conn_str");
     if(conn_string != nullptr) return conn_string;
     else
-      std::cout<<"connection string nout found"<<std::endl;
+      std::cout<<"connection string not found"<<std::endl;
       return nullptr;
-    
-    return "ok";
+
 }
 
 unsigned long const Utils::hash_password(std::string str){

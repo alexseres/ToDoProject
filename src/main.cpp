@@ -5,7 +5,7 @@
 
 
 int main(int argc, char * argv []) {
-    SQL_Operations sql;
+    SQL_Abstract *sql = new SQL_Operations;
     UserHandler handler(sql);
     Signer signer(handler);
     signer.introduction();

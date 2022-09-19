@@ -11,7 +11,7 @@ class Signer {
 private:
     UserHandler handler;
 public:
-    explicit Signer(UserHandler _handler): handler(std::move(_handler)){};
+    explicit Signer(const UserHandler& _handler): handler(_handler){};
 
     void introduction();
     void registration();

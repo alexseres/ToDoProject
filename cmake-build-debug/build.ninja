@@ -118,7 +118,7 @@ build cmake_object_order_depends_target_todop: phony || cmake_object_order_depen
 
 build src/CMakeFiles/todop.dir/main.cpp.o: CXX_COMPILER__todop_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/main.cpp || cmake_object_order_depends_target_todop
   DEP_FILE = src/CMakeFiles/todop.dir/main.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIE -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   INCLUDES = -I/usr/local/include
   OBJECT_DIR = src/CMakeFiles/todop.dir
   OBJECT_FILE_DIR = src/CMakeFiles/todop.dir
@@ -131,9 +131,9 @@ build src/CMakeFiles/todop.dir/main.cpp.o: CXX_COMPILER__todop_Debug /Users/alex
 #############################################
 # Link the executable src/todop
 
-build src/todop: CXX_EXECUTABLE_LINKER__todop_Debug src/CMakeFiles/todop.dir/main.cpp.o | src/View/libview.dylib /usr/local/Cellar/sdl2/2.0.20/lib/libSDL2-2.0.0.dylib src/Model/libmodels.dylib src/Data/libdata_manager.dylib /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Utils/libutils.dylib || src/Data/libdata_manager.dylib src/Model/libmodels.dylib src/Utils/libutils.dylib src/View/libview.dylib
+build src/todop: CXX_EXECUTABLE_LINKER__todop_Debug src/CMakeFiles/todop.dir/main.cpp.o | src/Model/libmodels.a src/Data/libdata_manager.a src/View/libview.a src/Model/libmodels.a src/Data/libdata_manager.a /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx-7.7.dylib src/Utils/libutils.a || src/Data/libdata_manager.a src/Model/libmodels.a src/Utils/libutils.a src/View/libview.a
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/View -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Model -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Data -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Utils  src/View/libview.dylib  /usr/local/Cellar/sdl2/2.0.20/lib/libSDL2-2.0.0.dylib  src/Model/libmodels.dylib  src/Data/libdata_manager.dylib  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/Utils/libutils.dylib
+  LINK_LIBRARIES = src/Model/libmodels.a  src/Data/libdata_manager.a  src/View/libview.a  src/Model/libmodels.a  src/Data/libdata_manager.a  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx-7.7.dylib  src/Utils/libutils.a
   OBJECT_DIR = src/CMakeFiles/todop.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -211,7 +211,7 @@ build src/install/strip: phony src/CMakeFiles/install/strip.util
 # =============================================================================
 
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target utils
+# Object build statements for STATIC_LIBRARY target utils
 
 
 #############################################
@@ -220,31 +220,27 @@ build src/install/strip: phony src/CMakeFiles/install/strip.util
 build cmake_object_order_depends_target_utils: phony || src/Utils/CMakeFiles/utils.dir
 
 build src/Utils/CMakeFiles/utils.dir/Utils.cpp.o: CXX_COMPILER__utils_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Utils/Utils.cpp || cmake_object_order_depends_target_utils
-  DEFINES = -Dutils_EXPORTS
   DEP_FILE = src/Utils/CMakeFiles/utils.dir/Utils.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   OBJECT_DIR = src/Utils/CMakeFiles/utils.dir
   OBJECT_FILE_DIR = src/Utils/CMakeFiles/utils.dir
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target utils
+# Link build statements for STATIC_LIBRARY target utils
 
 
 #############################################
-# Link the shared library src/Utils/libutils.dylib
+# Link the static library src/Utils/libutils.a
 
-build src/Utils/libutils.dylib: CXX_SHARED_LIBRARY_LINKER__utils_Debug src/Utils/CMakeFiles/utils.dir/Utils.cpp.o
+build src/Utils/libutils.a: CXX_STATIC_LIBRARY_LINKER__utils_Debug src/Utils/CMakeFiles/utils.dir/Utils.cpp.o
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  INSTALLNAME_DIR = @rpath/
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = src/Utils/CMakeFiles/utils.dir
   POST_BUILD = :
   PRE_LINK = :
-  SONAME = libutils.dylib
-  SONAME_FLAG = -install_name
-  TARGET_FILE = src/Utils/libutils.dylib
-  TARGET_PDB = utils.dylib.dbg
+  TARGET_FILE = src/Utils/libutils.a
+  TARGET_PDB = utils.a.dbg
 
 
 #############################################
@@ -317,7 +313,7 @@ build src/Utils/install/strip: phony src/Utils/CMakeFiles/install/strip.util
 # =============================================================================
 
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target view
+# Object build statements for STATIC_LIBRARY target view
 
 
 #############################################
@@ -326,41 +322,35 @@ build src/Utils/install/strip: phony src/Utils/CMakeFiles/install/strip.util
 build cmake_object_order_depends_target_view: phony || cmake_object_order_depends_target_data_manager cmake_object_order_depends_target_models cmake_object_order_depends_target_utils
 
 build src/View/CMakeFiles/view.dir/Signer.cpp.o: CXX_COMPILER__view_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/Signer.cpp || cmake_object_order_depends_target_view
-  DEFINES = -Dview_EXPORTS
   DEP_FILE = src/View/CMakeFiles/view.dir/Signer.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   INCLUDES = -I/usr/local/include
   OBJECT_DIR = src/View/CMakeFiles/view.dir
   OBJECT_FILE_DIR = src/View/CMakeFiles/view.dir
 
 build src/View/CMakeFiles/view.dir/MainView.cpp.o: CXX_COMPILER__view_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View/MainView.cpp || cmake_object_order_depends_target_view
-  DEFINES = -Dview_EXPORTS
   DEP_FILE = src/View/CMakeFiles/view.dir/MainView.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   INCLUDES = -I/usr/local/include
   OBJECT_DIR = src/View/CMakeFiles/view.dir
   OBJECT_FILE_DIR = src/View/CMakeFiles/view.dir
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target view
+# Link build statements for STATIC_LIBRARY target view
 
 
 #############################################
-# Link the shared library src/View/libview.dylib
+# Link the static library src/View/libview.a
 
-build src/View/libview.dylib: CXX_SHARED_LIBRARY_LINKER__view_Debug src/View/CMakeFiles/view.dir/Signer.cpp.o src/View/CMakeFiles/view.dir/MainView.cpp.o | src/Model/libmodels.dylib src/Data/libdata_manager.dylib /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Utils/libutils.dylib || src/Data/libdata_manager.dylib src/Model/libmodels.dylib src/Utils/libutils.dylib
+build src/View/libview.a: CXX_STATIC_LIBRARY_LINKER__view_Debug src/View/CMakeFiles/view.dir/Signer.cpp.o src/View/CMakeFiles/view.dir/MainView.cpp.o || src/Data/libdata_manager.a src/Model/libmodels.a src/Utils/libutils.a
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  INSTALLNAME_DIR = @rpath/
   LANGUAGE_COMPILE_FLAGS = -g
-  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Model -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Data -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Utils  src/Model/libmodels.dylib  src/Data/libdata_manager.dylib  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/Utils/libutils.dylib
   OBJECT_DIR = src/View/CMakeFiles/view.dir
   POST_BUILD = :
   PRE_LINK = :
-  SONAME = libview.dylib
-  SONAME_FLAG = -install_name
-  TARGET_FILE = src/View/libview.dylib
-  TARGET_PDB = view.dylib.dbg
+  TARGET_FILE = src/View/libview.a
+  TARGET_PDB = view.a.dbg
 
 
 #############################################
@@ -433,7 +423,7 @@ build src/View/install/strip: phony src/View/CMakeFiles/install/strip.util
 # =============================================================================
 
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target models
+# Object build statements for STATIC_LIBRARY target models
 
 
 #############################################
@@ -442,57 +432,49 @@ build src/View/install/strip: phony src/View/CMakeFiles/install/strip.util
 build cmake_object_order_depends_target_models: phony || cmake_object_order_depends_target_data_manager cmake_object_order_depends_target_utils
 
 build src/Model/CMakeFiles/models.dir/UserHandler.cpp.o: CXX_COMPILER__models_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model/UserHandler.cpp || cmake_object_order_depends_target_models
-  DEFINES = -Dmodels_EXPORTS
   DEP_FILE = src/Model/CMakeFiles/models.dir/UserHandler.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   INCLUDES = -I/usr/local/include
   OBJECT_DIR = src/Model/CMakeFiles/models.dir
   OBJECT_FILE_DIR = src/Model/CMakeFiles/models.dir
 
 build src/Model/CMakeFiles/models.dir/User.cpp.o: CXX_COMPILER__models_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model/User.cpp || cmake_object_order_depends_target_models
-  DEFINES = -Dmodels_EXPORTS
   DEP_FILE = src/Model/CMakeFiles/models.dir/User.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   INCLUDES = -I/usr/local/include
   OBJECT_DIR = src/Model/CMakeFiles/models.dir
   OBJECT_FILE_DIR = src/Model/CMakeFiles/models.dir
 
 build src/Model/CMakeFiles/models.dir/Table.cpp.o: CXX_COMPILER__models_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model/Table.cpp || cmake_object_order_depends_target_models
-  DEFINES = -Dmodels_EXPORTS
   DEP_FILE = src/Model/CMakeFiles/models.dir/Table.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   INCLUDES = -I/usr/local/include
   OBJECT_DIR = src/Model/CMakeFiles/models.dir
   OBJECT_FILE_DIR = src/Model/CMakeFiles/models.dir
 
 build src/Model/CMakeFiles/models.dir/Card.cpp.o: CXX_COMPILER__models_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model/Card.cpp || cmake_object_order_depends_target_models
-  DEFINES = -Dmodels_EXPORTS
   DEP_FILE = src/Model/CMakeFiles/models.dir/Card.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   INCLUDES = -I/usr/local/include
   OBJECT_DIR = src/Model/CMakeFiles/models.dir
   OBJECT_FILE_DIR = src/Model/CMakeFiles/models.dir
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target models
+# Link build statements for STATIC_LIBRARY target models
 
 
 #############################################
-# Link the shared library src/Model/libmodels.dylib
+# Link the static library src/Model/libmodels.a
 
-build src/Model/libmodels.dylib: CXX_SHARED_LIBRARY_LINKER__models_Debug src/Model/CMakeFiles/models.dir/UserHandler.cpp.o src/Model/CMakeFiles/models.dir/User.cpp.o src/Model/CMakeFiles/models.dir/Table.cpp.o src/Model/CMakeFiles/models.dir/Card.cpp.o | /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Data/libdata_manager.dylib src/Utils/libutils.dylib /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib || src/Data/libdata_manager.dylib src/Utils/libutils.dylib
+build src/Model/libmodels.a: CXX_STATIC_LIBRARY_LINKER__models_Debug src/Model/CMakeFiles/models.dir/UserHandler.cpp.o src/Model/CMakeFiles/models.dir/User.cpp.o src/Model/CMakeFiles/models.dir/Table.cpp.o src/Model/CMakeFiles/models.dir/Card.cpp.o || src/Data/libdata_manager.a src/Utils/libutils.a
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  INSTALLNAME_DIR = @rpath/
   LANGUAGE_COMPILE_FLAGS = -g
-  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Data -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Utils  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/Data/libdata_manager.dylib  src/Utils/libutils.dylib  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib
   OBJECT_DIR = src/Model/CMakeFiles/models.dir
   POST_BUILD = :
   PRE_LINK = :
-  SONAME = libmodels.dylib
-  SONAME_FLAG = -install_name
-  TARGET_FILE = src/Model/libmodels.dylib
-  TARGET_PDB = models.dylib.dbg
+  TARGET_FILE = src/Model/libmodels.a
+  TARGET_PDB = models.a.dbg
 
 
 #############################################
@@ -565,7 +547,7 @@ build src/Model/install/strip: phony src/Model/CMakeFiles/install/strip.util
 # =============================================================================
 
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target data_manager
+# Object build statements for STATIC_LIBRARY target data_manager
 
 
 #############################################
@@ -574,41 +556,35 @@ build src/Model/install/strip: phony src/Model/CMakeFiles/install/strip.util
 build cmake_object_order_depends_target_data_manager: phony || cmake_object_order_depends_target_utils
 
 build src/Data/CMakeFiles/data_manager.dir/SQL_Operations.cpp.o: CXX_COMPILER__data_manager_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Data/SQL_Operations.cpp || cmake_object_order_depends_target_data_manager
-  DEFINES = -Ddata_manager_EXPORTS
   DEP_FILE = src/Data/CMakeFiles/data_manager.dir/SQL_Operations.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   INCLUDES = -I/usr/local/include
   OBJECT_DIR = src/Data/CMakeFiles/data_manager.dir
   OBJECT_FILE_DIR = src/Data/CMakeFiles/data_manager.dir
 
 build src/Data/CMakeFiles/data_manager.dir/SQL_Abstract.cpp.o: CXX_COMPILER__data_manager_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Data/SQL_Abstract.cpp || cmake_object_order_depends_target_data_manager
-  DEFINES = -Ddata_manager_EXPORTS
   DEP_FILE = src/Data/CMakeFiles/data_manager.dir/SQL_Abstract.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   INCLUDES = -I/usr/local/include
   OBJECT_DIR = src/Data/CMakeFiles/data_manager.dir
   OBJECT_FILE_DIR = src/Data/CMakeFiles/data_manager.dir
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target data_manager
+# Link build statements for STATIC_LIBRARY target data_manager
 
 
 #############################################
-# Link the shared library src/Data/libdata_manager.dylib
+# Link the static library src/Data/libdata_manager.a
 
-build src/Data/libdata_manager.dylib: CXX_SHARED_LIBRARY_LINKER__data_manager_Debug src/Data/CMakeFiles/data_manager.dir/SQL_Operations.cpp.o src/Data/CMakeFiles/data_manager.dir/SQL_Abstract.cpp.o | /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Utils/libutils.dylib || src/Utils/libutils.dylib
+build src/Data/libdata_manager.a: CXX_STATIC_LIBRARY_LINKER__data_manager_Debug src/Data/CMakeFiles/data_manager.dir/SQL_Operations.cpp.o src/Data/CMakeFiles/data_manager.dir/SQL_Abstract.cpp.o || src/Utils/libutils.a
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  INSTALLNAME_DIR = @rpath/
   LANGUAGE_COMPILE_FLAGS = -g
-  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Utils  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/Utils/libutils.dylib
   OBJECT_DIR = src/Data/CMakeFiles/data_manager.dir
   POST_BUILD = :
   PRE_LINK = :
-  SONAME = libdata_manager.dylib
-  SONAME_FLAG = -install_name
-  TARGET_FILE = src/Data/libdata_manager.dylib
-  TARGET_PDB = data_manager.dylib.dbg
+  TARGET_FILE = src/Data/libdata_manager.a
+  TARGET_PDB = data_manager.a.dbg
 
 
 #############################################
@@ -691,21 +667,21 @@ build cmake_object_order_depends_target_td_test: phony || cmake_object_order_dep
 
 build test/CMakeFiles/td_test.dir/user_handler_test.cpp.o: CXX_COMPILER__td_test_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/user_handler_test.cpp || cmake_object_order_depends_target_td_test
   DEP_FILE = test/CMakeFiles/td_test.dir/user_handler_test.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIE -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Data -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock
   OBJECT_DIR = test/CMakeFiles/td_test.dir
   OBJECT_FILE_DIR = test/CMakeFiles/td_test.dir
 
 build test/CMakeFiles/td_test.dir/data_sql_test.cpp.o: CXX_COMPILER__td_test_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/data_sql_test.cpp || cmake_object_order_depends_target_td_test
   DEP_FILE = test/CMakeFiles/td_test.dir/data_sql_test.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIE -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Data -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock
   OBJECT_DIR = test/CMakeFiles/td_test.dir
   OBJECT_FILE_DIR = test/CMakeFiles/td_test.dir
 
 build test/CMakeFiles/td_test.dir/__/src/Utils/Utils.cpp.o: CXX_COMPILER__td_test_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Utils/Utils.cpp || cmake_object_order_depends_target_td_test
   DEP_FILE = test/CMakeFiles/td_test.dir/__/src/Utils/Utils.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIE -std=gnu++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++17
   INCLUDES = -I/usr/local/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Data -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/Model -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/src/View -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock
   OBJECT_DIR = test/CMakeFiles/td_test.dir
   OBJECT_FILE_DIR = test/CMakeFiles/td_test.dir/__/src/Utils
@@ -718,9 +694,9 @@ build test/CMakeFiles/td_test.dir/__/src/Utils/Utils.cpp.o: CXX_COMPILER__td_tes
 #############################################
 # Link the executable test/td_test
 
-build test/td_test: CXX_EXECUTABLE_LINKER__td_test_Debug test/CMakeFiles/td_test.dir/user_handler_test.cpp.o test/CMakeFiles/td_test.dir/data_sql_test.cpp.o test/CMakeFiles/td_test.dir/__/src/Utils/Utils.cpp.o | /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Model/libmodels.dylib lib/libgtest_main.1.12.1.dylib lib/libgmock.1.12.1.dylib src/Data/libdata_manager.dylib /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib src/Utils/libutils.dylib lib/libgtest.1.12.1.dylib || lib/libgmock.dylib lib/libgtest.dylib lib/libgtest_main.dylib src/Data/libdata_manager.dylib src/Model/libmodels.dylib src/Utils/libutils.dylib lib/libgtest_main.dylib lib/libgmock.dylib lib/libgtest.dylib
+build test/td_test: CXX_EXECUTABLE_LINKER__td_test_Debug test/CMakeFiles/td_test.dir/user_handler_test.cpp.o test/CMakeFiles/td_test.dir/data_sql_test.cpp.o test/CMakeFiles/td_test.dir/__/src/Utils/Utils.cpp.o | /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx-7.7.dylib src/Data/libdata_manager.a src/Model/libmodels.a lib/libgtest.a lib/libgtest_main.a lib/libgmock.a src/Data/libdata_manager.a /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx-7.7.dylib src/Utils/libutils.a lib/libgtest.a || lib/libgmock.a lib/libgtest.a lib/libgtest_main.a src/Data/libdata_manager.a src/Model/libmodels.a src/Utils/libutils.a
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Model -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/lib -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Data -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Utils  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/Model/libmodels.dylib  lib/libgtest_main.1.12.1.dylib  lib/libgmock.1.12.1.dylib  src/Data/libdata_manager.dylib  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib  src/Utils/libutils.dylib  lib/libgtest.1.12.1.dylib
+  LINK_LIBRARIES = /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx-7.7.dylib  src/Data/libdata_manager.a  src/Model/libmodels.a  lib/libgtest.a  lib/libgtest_main.a  lib/libgmock.a  src/Data/libdata_manager.a  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx-7.7.dylib  src/Utils/libutils.a  lib/libgtest.a
   OBJECT_DIR = test/CMakeFiles/td_test.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -868,7 +844,7 @@ build test/googletest/install/strip: phony test/googletest/CMakeFiles/install/st
 # =============================================================================
 
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target gmock
+# Object build statements for STATIC_LIBRARY target gmock
 
 
 #############################################
@@ -877,45 +853,31 @@ build test/googletest/install/strip: phony test/googletest/CMakeFiles/install/st
 build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depends_target_gtest
 
 build test/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
-  DEFINES = -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_EXPORTS
   DEP_FILE = test/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC  -DGTEST_HAS_PTHREAD=1   -std=c++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15  -DGTEST_HAS_PTHREAD=1   -std=c++17
   INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
   OBJECT_DIR = test/googletest/googlemock/CMakeFiles/gmock.dir
   OBJECT_FILE_DIR = test/googletest/googlemock/CMakeFiles/gmock.dir/src
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target gmock
+# Link build statements for STATIC_LIBRARY target gmock
 
 
 #############################################
-# Link the shared library lib/libgmock.1.12.1.dylib
+# Link the static library lib/libgmock.a
 
-build lib/libgmock.1.12.1.dylib: CXX_SHARED_LIBRARY_LINKER__gmock_Debug test/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o | lib/libgtest.1.12.1.dylib || lib/libgtest.dylib lib/libgtest.dylib
+build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug test/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o || lib/libgtest.a
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  INSTALLNAME_DIR = @rpath/
   LANGUAGE_COMPILE_FLAGS = -g
-  LINK_FLAGS = -current_version 1.12.1
-  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/lib  lib/libgtest.1.12.1.dylib
   OBJECT_DIR = test/googletest/googlemock/CMakeFiles/gmock.dir
   POST_BUILD = :
   PRE_LINK = :
-  SONAME = libgmock.1.12.1.dylib
-  SONAME_FLAG = -install_name
-  TARGET_FILE = lib/libgmock.1.12.1.dylib
-  TARGET_PDB = gmock.dylib.dbg
-
-
-#############################################
-# Create library symlink lib/libgmock.dylib
-
-build lib/libgmock.dylib: CMAKE_SYMLINK_LIBRARY lib/libgmock.1.12.1.dylib
-  POST_BUILD = :
-  SONAME = lib/libgmock.1.12.1.dylib
+  TARGET_FILE = lib/libgmock.a
+  TARGET_PDB = gmock.a.dbg
 
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target gmock_main
+# Object build statements for STATIC_LIBRARY target gmock_main
 
 
 #############################################
@@ -924,42 +886,28 @@ build lib/libgmock.dylib: CMAKE_SYMLINK_LIBRARY lib/libgmock.1.12.1.dylib
 build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
 
 build test/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
-  DEFINES = -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_main_EXPORTS
   DEP_FILE = test/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC  -DGTEST_HAS_PTHREAD=1   -std=c++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15  -DGTEST_HAS_PTHREAD=1   -std=c++17
   INCLUDES = -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googlemock -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
   OBJECT_DIR = test/googletest/googlemock/CMakeFiles/gmock_main.dir
   OBJECT_FILE_DIR = test/googletest/googlemock/CMakeFiles/gmock_main.dir/src
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target gmock_main
+# Link build statements for STATIC_LIBRARY target gmock_main
 
 
 #############################################
-# Link the shared library lib/libgmock_main.1.12.1.dylib
+# Link the static library lib/libgmock_main.a
 
-build lib/libgmock_main.1.12.1.dylib: CXX_SHARED_LIBRARY_LINKER__gmock_main_Debug test/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o | lib/libgmock.1.12.1.dylib lib/libgtest.1.12.1.dylib || lib/libgmock.dylib lib/libgtest.dylib lib/libgmock.dylib lib/libgtest.dylib
+build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug test/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o || lib/libgmock.a lib/libgtest.a
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  INSTALLNAME_DIR = @rpath/
   LANGUAGE_COMPILE_FLAGS = -g
-  LINK_FLAGS = -current_version 1.12.1
-  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/lib  lib/libgmock.1.12.1.dylib  lib/libgtest.1.12.1.dylib
   OBJECT_DIR = test/googletest/googlemock/CMakeFiles/gmock_main.dir
   POST_BUILD = :
   PRE_LINK = :
-  SONAME = libgmock_main.1.12.1.dylib
-  SONAME_FLAG = -install_name
-  TARGET_FILE = lib/libgmock_main.1.12.1.dylib
-  TARGET_PDB = gmock_main.dylib.dbg
-
-
-#############################################
-# Create library symlink lib/libgmock_main.dylib
-
-build lib/libgmock_main.dylib: CMAKE_SYMLINK_LIBRARY lib/libgmock_main.1.12.1.dylib
-  POST_BUILD = :
-  SONAME = lib/libgmock_main.1.12.1.dylib
+  TARGET_FILE = lib/libgmock_main.a
+  TARGET_PDB = gmock_main.a.dbg
 
 
 #############################################
@@ -1032,7 +980,7 @@ build test/googletest/googlemock/install/strip: phony test/googletest/googlemock
 # =============================================================================
 
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target gtest
+# Object build statements for STATIC_LIBRARY target gtest
 
 
 #############################################
@@ -1041,44 +989,31 @@ build test/googletest/googlemock/install/strip: phony test/googletest/googlemock
 build cmake_object_order_depends_target_gtest: phony || test/googletest/googletest/CMakeFiles/gtest.dir
 
 build test/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
-  DEFINES = -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_EXPORTS
   DEP_FILE = test/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC  -DGTEST_HAS_PTHREAD=1   -std=c++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15  -DGTEST_HAS_PTHREAD=1   -std=c++17
   INCLUDES = -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -I/Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
   OBJECT_DIR = test/googletest/googletest/CMakeFiles/gtest.dir
   OBJECT_FILE_DIR = test/googletest/googletest/CMakeFiles/gtest.dir/src
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target gtest
+# Link build statements for STATIC_LIBRARY target gtest
 
 
 #############################################
-# Link the shared library lib/libgtest.1.12.1.dylib
+# Link the static library lib/libgtest.a
 
-build lib/libgtest.1.12.1.dylib: CXX_SHARED_LIBRARY_LINKER__gtest_Debug test/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug test/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  INSTALLNAME_DIR = @rpath/
   LANGUAGE_COMPILE_FLAGS = -g
-  LINK_FLAGS = -current_version 1.12.1
   OBJECT_DIR = test/googletest/googletest/CMakeFiles/gtest.dir
   POST_BUILD = :
   PRE_LINK = :
-  SONAME = libgtest.1.12.1.dylib
-  SONAME_FLAG = -install_name
-  TARGET_FILE = lib/libgtest.1.12.1.dylib
-  TARGET_PDB = gtest.dylib.dbg
-
-
-#############################################
-# Create library symlink lib/libgtest.dylib
-
-build lib/libgtest.dylib: CMAKE_SYMLINK_LIBRARY lib/libgtest.1.12.1.dylib
-  POST_BUILD = :
-  SONAME = lib/libgtest.1.12.1.dylib
+  TARGET_FILE = lib/libgtest.a
+  TARGET_PDB = gtest.a.dbg
 
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target gtest_main
+# Object build statements for STATIC_LIBRARY target gtest_main
 
 
 #############################################
@@ -1087,42 +1022,28 @@ build lib/libgtest.dylib: CMAKE_SYMLINK_LIBRARY lib/libgtest.1.12.1.dylib
 build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
 
 build test/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_Debug /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
-  DEFINES = -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_main_EXPORTS
   DEP_FILE = test/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC  -DGTEST_HAS_PTHREAD=1   -std=c++17
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15  -DGTEST_HAS_PTHREAD=1   -std=c++17
   INCLUDES = -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest/include -isystem /Users/alexseres/OwnCplusPlusProjects/ToDoProject/test/googletest/googletest
   OBJECT_DIR = test/googletest/googletest/CMakeFiles/gtest_main.dir
   OBJECT_FILE_DIR = test/googletest/googletest/CMakeFiles/gtest_main.dir/src
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target gtest_main
+# Link build statements for STATIC_LIBRARY target gtest_main
 
 
 #############################################
-# Link the shared library lib/libgtest_main.1.12.1.dylib
+# Link the static library lib/libgtest_main.a
 
-build lib/libgtest_main.1.12.1.dylib: CXX_SHARED_LIBRARY_LINKER__gtest_main_Debug test/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o | lib/libgtest.1.12.1.dylib || lib/libgtest.dylib lib/libgtest.dylib
+build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug test/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o || lib/libgtest.a
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
-  INSTALLNAME_DIR = @rpath/
   LANGUAGE_COMPILE_FLAGS = -g
-  LINK_FLAGS = -current_version 1.12.1
-  LINK_LIBRARIES = -Wl,-rpath,/Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/lib  lib/libgtest.1.12.1.dylib
   OBJECT_DIR = test/googletest/googletest/CMakeFiles/gtest_main.dir
   POST_BUILD = :
   PRE_LINK = :
-  SONAME = libgtest_main.1.12.1.dylib
-  SONAME_FLAG = -install_name
-  TARGET_FILE = lib/libgtest_main.1.12.1.dylib
-  TARGET_PDB = gtest_main.dylib.dbg
-
-
-#############################################
-# Create library symlink lib/libgtest_main.dylib
-
-build lib/libgtest_main.dylib: CMAKE_SYMLINK_LIBRARY lib/libgtest_main.1.12.1.dylib
-  POST_BUILD = :
-  SONAME = lib/libgtest_main.1.12.1.dylib
+  TARGET_FILE = lib/libgtest_main.a
+  TARGET_PDB = gtest_main.a.dbg
 
 
 #############################################
@@ -1192,41 +1113,41 @@ build test/googletest/googletest/install/strip: phony test/googletest/googletest
 # =============================================================================
 # Target aliases.
 
-build data_manager: phony src/Data/libdata_manager.dylib
+build data_manager: phony src/Data/libdata_manager.a
 
-build gmock: phony lib/libgmock.dylib
+build gmock: phony lib/libgmock.a
 
-build gmock_main: phony lib/libgmock_main.dylib
+build gmock_main: phony lib/libgmock_main.a
 
-build gtest: phony lib/libgtest.dylib
+build gtest: phony lib/libgtest.a
 
-build gtest_main: phony lib/libgtest_main.dylib
+build gtest_main: phony lib/libgtest_main.a
 
-build libdata_manager.dylib: phony src/Data/libdata_manager.dylib
+build libdata_manager.a: phony src/Data/libdata_manager.a
 
-build libgmock.dylib: phony lib/libgmock.dylib
+build libgmock.a: phony lib/libgmock.a
 
-build libgmock_main.dylib: phony lib/libgmock_main.dylib
+build libgmock_main.a: phony lib/libgmock_main.a
 
-build libgtest.dylib: phony lib/libgtest.dylib
+build libgtest.a: phony lib/libgtest.a
 
-build libgtest_main.dylib: phony lib/libgtest_main.dylib
+build libgtest_main.a: phony lib/libgtest_main.a
 
-build libmodels.dylib: phony src/Model/libmodels.dylib
+build libmodels.a: phony src/Model/libmodels.a
 
-build libutils.dylib: phony src/Utils/libutils.dylib
+build libutils.a: phony src/Utils/libutils.a
 
-build libview.dylib: phony src/View/libview.dylib
+build libview.a: phony src/View/libview.a
 
-build models: phony src/Model/libmodels.dylib
+build models: phony src/Model/libmodels.a
 
 build td_test: phony test/td_test
 
 build todop: phony src/todop
 
-build utils: phony src/Utils/libutils.dylib
+build utils: phony src/Utils/libutils.a
 
-build view: phony src/View/libview.dylib
+build view: phony src/View/libview.a
 
 # =============================================================================
 # Folder targets.
@@ -1250,28 +1171,28 @@ build src/all: phony src/todop src/Utils/all src/View/all src/Model/all src/Data
 #############################################
 # Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Data
 
-build src/Data/all: phony src/Data/libdata_manager.dylib
+build src/Data/all: phony src/Data/libdata_manager.a
 
 # =============================================================================
 
 #############################################
 # Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Model
 
-build src/Model/all: phony src/Model/libmodels.dylib
+build src/Model/all: phony src/Model/libmodels.a
 
 # =============================================================================
 
 #############################################
 # Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/Utils
 
-build src/Utils/all: phony src/Utils/libutils.dylib
+build src/Utils/all: phony src/Utils/libutils.a
 
 # =============================================================================
 
 #############################################
 # Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/src/View
 
-build src/View/all: phony src/View/libview.dylib
+build src/View/all: phony src/View/libview.a
 
 # =============================================================================
 
@@ -1292,14 +1213,14 @@ build test/googletest/all: phony test/googletest/googlemock/all
 #############################################
 # Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googlemock
 
-build test/googletest/googlemock/all: phony lib/libgmock.dylib lib/libgmock_main.dylib test/googletest/googletest/all
+build test/googletest/googlemock/all: phony lib/libgmock.a lib/libgmock_main.a test/googletest/googletest/all
 
 # =============================================================================
 
 #############################################
 # Folder: /Users/alexseres/OwnCplusPlusProjects/ToDoProject/cmake-build-debug/test/googletest/googletest
 
-build test/googletest/googletest/all: phony lib/libgtest.dylib lib/libgtest_main.dylib
+build test/googletest/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
 
 # =============================================================================
 # Built-in targets

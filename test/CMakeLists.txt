@@ -20,9 +20,10 @@ target_include_directories(
 
 target_link_libraries(
   td_test
-  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx.dylib
+  /usr/local/Cellar/libpqxx/7.7.4/lib/libpqxx-7.7.dylib
   data_manager
   models
+  GTest::gtest
   GTest::gtest_main
   GTest::gmock
 )
